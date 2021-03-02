@@ -31,9 +31,6 @@ public class DecimalToBinary {
 
         }
 
-
-
-
     public void convertOddDecimalToBinary(int oddDecimalNumber){
 
         if (oddDecimalNumber % 2 == 1) {
@@ -45,8 +42,6 @@ public class DecimalToBinary {
             flipTheReverseOfTheBinary();
             binary = Integer.parseInt(StringBinary);
         }
-
-
     }
 
     public int convertDecimalToBinary(int decimalNumber){
