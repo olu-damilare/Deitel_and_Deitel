@@ -5,7 +5,7 @@ public class DecimalToBinaryTest {
 
         DecimalToBinary converter = new DecimalToBinary();
 
-        converter.convertDecimalToReversedBinary(8);
-        System.out.println(converter.flipReversedBinary());
+        System.out.println(converter.convertDecimalToBinary(8));
+
     }
 }

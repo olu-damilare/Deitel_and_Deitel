@@ -1,30 +1,58 @@
 package Exercise;
 
 public class DecimalToBinary {
-    private String binary;
+    private String StringBinary;
     private String reversedBinary;
+    private int binary;
 
-    public void convertDecimalToReversedBinary(int decimalNumber) {
-        reversedBinary = "";
-        while (decimalNumber > 0) {
-            int remainder = decimalNumber % 2;
-            reversedBinary += remainder;
+    public void convertEvenDecimalToBinary(int evenDecimalNumber) {
+        if (evenDecimalNumber % 2 == 0) {
+            evenDecimalNumber += 1;
 
-            decimalNumber /= 2;
+            reversedBinary = "";
+            while (evenDecimalNumber > 0) {
+                reversedBinary += evenDecimalNumber % 2;
+                evenDecimalNumber /= 2;
+            }
+
+            flipTheReverseOfTheBinary();
+            binary = Integer.parseInt(StringBinary) - 1;
         }
     }
-        public String flipReversedBinary() {
-           binary = "";
-            int number = Integer.parseInt(reversedBinary);
 
-            while(number > 0) {
-                binary += number % 10;
+        public void flipTheReverseOfTheBinary(){
+            int integerOfReversedBinary = Integer.parseInt(reversedBinary);
 
-                number /= 10;
-//                if (number == 0)
-//                    binary += number;
+            StringBinary = "";
+            while(integerOfReversedBinary > 0){
+                StringBinary += integerOfReversedBinary % 10;
+                integerOfReversedBinary /= 10;
             }
-            return binary;
 
         }
+
+
+
+
+    public void convertOddDecimalToBinary(int oddDecimalNumber){
+
+        if (oddDecimalNumber % 2 == 1) {
+            reversedBinary = "";
+            while (oddDecimalNumber > 0) {
+                reversedBinary += oddDecimalNumber % 2;
+                oddDecimalNumber /= 2;
+            }
+            flipTheReverseOfTheBinary();
+            binary = Integer.parseInt(StringBinary);
+        }
+
+
+    }
+
+    public int convertDecimalToBinary(int decimalNumber){
+        convertEvenDecimalToBinary(decimalNumber);
+        convertOddDecimalToBinary(decimalNumber);
+
+        return binary;
+    }
 }
