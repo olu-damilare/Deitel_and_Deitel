@@ -31,30 +31,38 @@ public class MyAccountTest {
         assertEquals(3000, account.getBalance());
     }
     @Test
-    void testThatAccountCannotWithdrawNegativeAmount(){
-        account.deposit(10000);
-        account.withdraw(-3000.00);
-        assertEquals(10000, account.getBalance());
+    void testThatUserCanSetPin(){
+        account.setPin(1234);
+        assertEquals(1234, account.getPin());
     }
-
     @Test
-    void testThatAccountCanMakeWithdrawal(){
+    void testThatUserCanMakeWithdrawalWithCorrectPin(){
         account.deposit(5000);
-        account.withdraw(3000.00);
+        account.setPin(1234);
+        account.withdraw(3000.00, 1234);
         assertEquals(2000, account.getBalance());
     }
 
     @Test
-    void testThatAccountCanMakeMoreThanOneWithdrawal(){
+    void testThatUserCannotWithdrawNegativeAmount(){
+        account.deposit(10000);
+        account.setPin(1234);
+        account.withdraw(-3000.00, 1234);
+        assertEquals(10000, account.getBalance());
+    }
+    @Test
+    void testThatUserCanMakeMoreThanOneWithdrawal(){
         account.deposit(5000);
-        account.withdraw(3000.00);
-        account.withdraw(1000.00);
+        account.setPin(1234);
+        account.withdraw(3000.00, 1234);
+        account.withdraw(1000.00, 1234);
         assertEquals(1000, account.getBalance());
     }
     @Test
-    void testThatAccountCannotMakeWithdrawalWithInsufficientBalance(){
+    void testThatUserCannotMakeWithdrawalWithInsufficientBalance(){
         account.deposit(1000);
-        account.withdraw(3000.00);
+        account.setPin(1234);
+        account.withdraw(3000.00, 1234);
         assertEquals(1000, account.getBalance());
     }
 }
