@@ -17,17 +17,6 @@ public class TrianglePrinting {
         }
         System.out.println();
 
-//        int counter = 10;
-//        for (int i = 0; i < 10 ; i++) {
-//
-//            for (int j = 9; j > i ; j--) {
-//                System.out.print("*");
-//            }
-//
-//            System.out.println("*");
-//
-//        }
-
         int spaces = 0;
         for (int i = 10; i >= 0; i--) {
             for (int j = 0; j < spaces; j++) {

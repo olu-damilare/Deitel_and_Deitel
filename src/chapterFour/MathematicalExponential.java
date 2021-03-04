@@ -2,7 +2,7 @@ package chapterFour;
 
 public class MathematicalExponential {
 
-    public double calculateExponential(int number){
+    public double calculateExponential(double number){
         Factorial factorial = new Factorial();
         double exponential = 1;
 
