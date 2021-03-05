@@ -1,3 +1,5 @@
+package tddClasses;
+
 import chapterFive.BarsOfAsterisks;
 import org.junit.jupiter.api.Test;
 
