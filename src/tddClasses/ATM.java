@@ -82,7 +82,7 @@ public class ATM {
                                     double transferAmount = input.nextDouble();
                                     if (transferAmount > 0) {
                                         if (damiAccount.getBalance() >= transferAmount) {
-                                            damiAccount.withdraw(transferAmount, userPin);
+                                            damiAccount.transfer(transferAmount, userPin);
                                             beneficiaryAccount.deposit(transferAmount);
                                             System.out.println("Transaction successful");
                                             break;
@@ -96,6 +96,7 @@ public class ATM {
                                     break;
                                 } else
                                     System.out.println("Invalid account number");
+                                    break;
                             case 4:
                                 System.out.println("Your account balance is " + damiAccount.getBalance());
                                 break;
