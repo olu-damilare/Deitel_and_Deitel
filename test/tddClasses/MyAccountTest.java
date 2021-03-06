@@ -2,6 +2,7 @@ package tddClasses;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,8 +10,9 @@ public class MyAccountTest {
     private MyAccount account;
     @BeforeEach
             void startAllTestsWith(){
-        account = new MyAccount();
+        account = new MyAccount(123456);
     }
+
 
     @Test
     void testThatAccountCanReceiveDeposit(){
@@ -64,5 +66,20 @@ public class MyAccountTest {
         account.setPin(1234);
         account.withdraw(3000.00, 1234);
         assertEquals(1000, account.getBalance());
+    }
+    @Test
+    void testThatAccountCanTransferFunds(){
+        account.deposit(50000);
+        account.setPin(1234);
+        account.transfer(3000, 1234);
+        assertEquals(47000, account.getBalance());
+    }
+
+    @Test
+    void testThatAccountCanRechargePhoneNumber(){
+        account.deposit(1000);
+        account.setPin(1234);
+        account.recharge(100, 1234);
+        assertEquals(900, account.getBalance());
     }
 }
