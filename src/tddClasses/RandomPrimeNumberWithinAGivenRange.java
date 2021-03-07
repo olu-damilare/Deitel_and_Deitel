@@ -14,9 +14,7 @@ public class RandomPrimeNumberWithinAGivenRange {
             if (number % initialValue == 0)
                 counter++;
             initialValue++;
-
         }
-
         return counter == 1;
     }
 

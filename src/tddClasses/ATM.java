@@ -19,20 +19,21 @@ public class ATM {
                 System.out.println(pinRequest);
                 userPin = input.nextInt();
 
-                if (userPin != damiAccount.getPin())
-                {
-                    for (int i = 0; i < 3 ; i++)
-                    {
+                int pinTries = 1;
+                if (userPin != damiAccount.getPin()) {
+                    do {
                         System.out.println("Invalid pin, try again");
                         userPin = input.nextInt();
-
-                        if(userPin == damiAccount.getPin())
+                        if (userPin == damiAccount.getPin())
                             break;
+                        pinTries++;
+                    } while (pinTries <= 2);
+                }
 
-                    }
+                if(pinTries == 3)
+                        break;
 
-                    }
-                 else {
+                 else{
                     System.out.println();
                     atmMessage = """
                             Welcome,
@@ -96,7 +97,7 @@ public class ATM {
                                     break;
                                 } else
                                     System.out.println("Invalid account number");
-                                    break;
+
                             case 4:
                                 System.out.println("Your account balance is " + damiAccount.getBalance());
                                 break;
@@ -123,14 +124,17 @@ public class ATM {
                              """);
 
                     userChoice = input.nextInt();
-                    if (userChoice == 0)
-                        break;
 
                     while (userChoice != 0 && userChoice != 1) {
-                            System.out.println("Invalid input, try again");
+                            System.out.println("""
+                                    Invalid input, try again.
+                                    Press 1 to continue
+                                    Press 0 to exit""");
                         userChoice = input.nextInt();
 
                     }
+                    if (userChoice == 0)
+                        break;
                 }
             }
         }
