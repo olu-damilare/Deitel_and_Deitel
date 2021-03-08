@@ -5,17 +5,17 @@ import java.util.Scanner;
 public class ATM {
     public static void main(String[] args)
     {
-        MyAccount damiAccount =  new MyAccount(123456);
+        MyAccount myAccount =  new MyAccount(123456);
         MyAccount beneficiaryAccount = new MyAccount(234567);
 
-        String atmMessage= "";
+        String atmMessage = "";
         System.out.println("Please enter a 4-digit number to create your pin");
         Scanner input = new Scanner(System.in);
         int userPin = input.nextInt();
 
         if(userPin >= 1000 && userPin <=9999)
         {
-            damiAccount.setPin(userPin);
+            myAccount.setPin(userPin);
 
             while (true)
             {
@@ -24,13 +24,13 @@ public class ATM {
                 userPin = input.nextInt();
 
                 int pinTries = 1;
-                if (userPin != damiAccount.getPin())
+                if (userPin != myAccount.getPin())
                 {
                     do
                         {
                         System.out.println("Invalid pin, try again");
                         userPin = input.nextInt();
-                        if (userPin == damiAccount.getPin())
+                        if (userPin == myAccount.getPin())
                             break;
                         pinTries++;
                         } while (pinTries <= 2);
@@ -64,17 +64,24 @@ public class ATM {
                             case 1:
                                 System.out.println("How much do you want to deposit");
                                 double depositAmount = input.nextDouble();
-                                damiAccount.deposit(depositAmount);
-                                System.out.println("Transaction successful");
-                                break;
+                                if(depositAmount > 0)
+                                {
+                                    myAccount.deposit(depositAmount);
+                                     System.out.println("Transaction successful");
+                                     break;
+                                }
+                                else
+                                    System.out.println("Invalid amount");
+                                    break;
+
                             case 2:
                                 System.out.println("How much do you want to withdraw");
                                 double withdrawAmount = input.nextDouble();
                                 if (withdrawAmount > 0)
                                 {
-                                    if (damiAccount.getBalance() >= withdrawAmount)
+                                    if (myAccount.getBalance() >= withdrawAmount)
                                     {
-                                        damiAccount.withdraw(withdrawAmount, userPin);
+                                        myAccount.withdraw(withdrawAmount, userPin);
                                         System.out.println("Transaction successful");
                                         break;
                                     }
@@ -96,9 +103,9 @@ public class ATM {
                                     double transferAmount = input.nextDouble();
                                     if (transferAmount > 0)
                                     {
-                                        if (damiAccount.getBalance() >= transferAmount)
+                                        if (myAccount.getBalance() >= transferAmount)
                                         {
-                                            damiAccount.transfer(transferAmount, userPin);
+                                            myAccount.transfer(transferAmount, userPin);
                                             beneficiaryAccount.deposit(transferAmount);
                                             System.out.println("Transaction successful");
                                             break;
@@ -115,7 +122,7 @@ public class ATM {
                                     System.out.println("Invalid account number");
 
                             case 4:
-                                System.out.println("Your account balance is " + damiAccount.getBalance());
+                                System.out.println("Your account balance is " + myAccount.getBalance());
                                 break;
                             case 5:
                                 System.out.println("Enter beneficiary phone number");
@@ -125,7 +132,7 @@ public class ATM {
                             case 6:
                                 System.out.println("Please input your new pin");
                                 userPin = input.nextInt();
-                                damiAccount.setPin(userPin);
+                                myAccount.setPin(userPin);
                                 System.out.println("Pin changed successfully");
                                 break;
                             default:
@@ -148,7 +155,6 @@ public class ATM {
                                     Press 1 to continue
                                     Press 0 to exit""");
                             userChoice = input.nextInt();
-
                     }
                     if (userChoice == 0)
                         break;

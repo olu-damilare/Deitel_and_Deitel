@@ -1,3 +1,6 @@
+package chapterThree;
+
+
 import java.util.Scanner;
 public class HealthProfileTest{
 	public static void main(String[] args){

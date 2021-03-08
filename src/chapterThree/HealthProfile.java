@@ -1,3 +1,5 @@
+package chapterThree;
+
 public class HealthProfile{
 	private String firstName;
 	private String lastName;

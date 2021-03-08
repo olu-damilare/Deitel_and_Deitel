@@ -1,4 +1,7 @@
+package chapterThree;
+
 import java.util.Scanner;
+import chapterThree.Date;
 public class DateTest{
 
 	public static void main(String[] args){
