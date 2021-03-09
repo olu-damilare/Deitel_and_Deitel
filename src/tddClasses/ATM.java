@@ -117,9 +117,10 @@ public class ATM {
                                         }
                                     } else
                                         System.out.println("Invalid amount");
-                                    break;
+                                        break;
                                 } else
                                     System.out.println("Invalid account number");
+                                    break;
 
                             case 4:
                                 System.out.println("Your account balance is " + myAccount.getBalance());
