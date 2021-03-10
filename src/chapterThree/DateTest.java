@@ -12,19 +12,19 @@ public class DateTest{
 	Scanner input = new Scanner(System.in);
 	int myYear = input.nextInt();
 	calendar.setYear(myYear);
-	
+
 	System.out.println("input the month in digit");
 	int myMonth = input.nextInt();
 	calendar.setMonth(myMonth);
 
 	System.out.println("input the day in digit");
 	int myDay = input.nextInt();
-	calendar.setDay(myDay);	
+	calendar.setDay(myDay);
 
 	System.out.println("the date is " + calendar.displayDate());
 
-		
+
 
 	}
-		
+
 }

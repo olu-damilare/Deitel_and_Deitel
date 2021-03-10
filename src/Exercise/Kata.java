@@ -78,4 +78,19 @@ public class Kata {
     public double getAmount() {
         return amount;
     }
+
+    public static String calculateFactors(int number) {
+        String factors = "";
+        if(number > 0) {
+            for (int i = 1; i <= (number / 2); i++) {
+                if (number % i == 0 && i < number)
+                    factors += i + ",";
+            }
+            factors += number;
+        }
+        else factors = "invalid input";
+
+        return factors;
+    }
+
 }

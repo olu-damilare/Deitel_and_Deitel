@@ -15,7 +15,7 @@ public class HealthProfileTest{
 		System.out.println("Enter your last name: ");
 		String patientLastName = input.nextLine();
 		patient.setLastName(patientLastName);
-		
+
 		System.out.println("Enter your month of birth: ");
 		int patientMonthOfBirth = input.nextInt();
 		date.setMonth(patientMonthOfBirth);
@@ -23,11 +23,11 @@ public class HealthProfileTest{
 		System.out.println("Enter your day of birth: ");
 		int patientDayOfBirth = input.nextInt();
 		date.setDay(patientDayOfBirth);
-		
+
 		System.out.println("Enter your year of birth: ");
 		int patientYearOfBirth = input.nextInt();
 		date.setYear(patientYearOfBirth);
-			
+
 		System.out.println(date.displayDate());
 
 		System.out.println("Enter your height in inches: ");

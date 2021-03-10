@@ -58,5 +58,15 @@ public class KataTest {
         kata.testDriller(1000);
         assertEquals(800.00 * 1000, kata.getAmount());
     }
+    @Test
+    void testForTheFactorsOfANumber(){
+        String factors =kata.calculateFactors(10);
+        assertEquals("1,2,5,10", factors);
+    }
+    @Test
+    void testThatFactorMethodCannotInputNegativeValue(){
+       String factors = kata.calculateFactors(-10);
+        assertEquals("invalid input", factors);
+    }
 
 }

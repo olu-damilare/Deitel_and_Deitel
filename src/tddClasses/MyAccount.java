@@ -4,45 +4,34 @@ public class MyAccount {
 
 
     private double balance;
-    private int pin;
+    private String pin;
     private int accountNumber;
 
     public MyAccount(int accountNumber){
         this.accountNumber = accountNumber;
     }
 
-    public int getAccountNumber(){
-        return accountNumber;
-    }
-    public void deposit(double depositAmount) {
-        if(depositAmount > 0)
-        balance += depositAmount;
-    }
-
+    public int getAccountNumber(){ return accountNumber; }
+    public void deposit(double depositAmount) { if(depositAmount > 0) balance += depositAmount; }
 
     public double getBalance() {
         return balance;
     }
 
-    public void withdraw(double withdrawAmount, int pin) {
-        if(pin == this.pin && withdrawAmount > 0 && balance > withdrawAmount)
+    public void withdraw(double withdrawAmount, String pin) {
+        if(pin.equals(this.pin) && withdrawAmount > 0 && balance > withdrawAmount)
             balance -= withdrawAmount;
     }
 
-    public void setPin(int pin) {
-        if(pin >= 0000 && pin <= 9999)
-        this.pin = pin;
-    }
+    public void setPin(String pin) { if(pin.length() == 4) this.pin = pin; }
 
-    public int getPin() {
-        return pin;
-    }
+    public String getPin() { return pin; }
 
-    public void transfer(double transferAmount, int pin) {
+    public void transfer(double transferAmount, String pin) {
         withdraw(transferAmount, pin);
     }
 
-    public void recharge(int rechargeAmount, int pin) {
+    public void recharge(int rechargeAmount, String pin) {
         withdraw(rechargeAmount, pin);
     }
 }

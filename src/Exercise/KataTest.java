@@ -34,7 +34,8 @@ public class KataTest {
                 System.out.println();
         }
 
-
+        ;
+        System.out.println(newKata.calculateFactors(50));
         }
 
 
