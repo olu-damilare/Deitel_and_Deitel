@@ -13,7 +13,7 @@ public class FairTax {
         return totalExpense;
     }
 
-    public double getCalculateTax() {
+    public double CalculateTax() {
         double rate = 0.30;
 
         return rate * totalExpense;
