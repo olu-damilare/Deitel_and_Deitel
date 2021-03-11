@@ -36,7 +36,7 @@ public class FairTaxTest {
         fairTax.setExpense(200.00);
         fairTax.setExpense(300.00);
 
-        assertEquals(180, fairTax.getCalculateTax());
+        assertEquals(180, fairTax.CalculateTax());
     }
     @Test
     void testThatNegativeExpenseValueNotValid(){
