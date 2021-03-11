@@ -1,3 +1,5 @@
+package Exercise;
+
 import java.util.Scanner;
 public class BitFlipper{
 	public static void main(String[] args){
@@ -12,6 +14,6 @@ public class BitFlipper{
 		else
 		System.out.println("you entered an invalid digit");
 
-	}
 
+	}
 }
