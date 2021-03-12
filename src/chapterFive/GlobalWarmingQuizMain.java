@@ -16,7 +16,7 @@ public class GlobalWarmingQuizMain {
 
         System.out.println(message);
 
-        System.out.println(questionOne());
+        System.out.println(globalWarming.questionOne());
         String userSelection = input.next();
         userSelection = validateSelection(input, userSelection);
 
@@ -29,7 +29,7 @@ public class GlobalWarmingQuizMain {
         }
 
 
-        System.out.println(questionTwo());
+        System.out.println(globalWarming.questionTwo());
         userSelection = input.next();
         userSelection = validateSelection(input, userSelection);
 
@@ -41,7 +41,7 @@ public class GlobalWarmingQuizMain {
             }
         }
 
-        System.out.println(questionThree());
+        System.out.println(globalWarming.questionThree());
         userSelection = input.next();
         userSelection = validateSelection(input, userSelection);
 
@@ -53,7 +53,7 @@ public class GlobalWarmingQuizMain {
             }
         }
 
-        System.out.println(questionFour());
+        System.out.println(globalWarming.questionFour());
         userSelection = input.next();
         userSelection = validateSelection(input, userSelection);
 
@@ -65,7 +65,7 @@ public class GlobalWarmingQuizMain {
             }
         }
 
-        System.out.println(questionFive());
+        System.out.println(globalWarming.questionFive());
         userSelection = input.next();
         userSelection = validateSelection(input, userSelection);
 
@@ -77,8 +77,7 @@ public class GlobalWarmingQuizMain {
             }
         }
 
-
-        System.out.println(result(globalWarming));
+        System.out.println(globalWarming.result());
 
 
     }
@@ -93,94 +92,6 @@ public class GlobalWarmingQuizMain {
         return userSelection;
     }
 
-    private static String result(GlobalWarmingQuiz globalWarming) {
-        System.out.println("You scored " + globalWarming.getTotalScore());
-
-        if(globalWarming.getTotalScore() == 5)
-            return "Excellent";
-        else if(globalWarming.getTotalScore() == 4)
-            return "Very good";
-        else
-            return """
-                    Time to brush up your knowledge of global warming.
-                    for more information on climate change, lookup:
-                    www.climate.nasa.gov, 
-                    www.environmentalsciencedegree.com/climate-change/,
-                    www.greenfacts.org/en/climate-change-ar3/ 
-                    """;
-    }
-
-    private static String questionOne(){
-        String question = """
-                    Question 1:
-                    
-                    Which of the following does not trap heat?
-                    A. Carbon dioxide
-                    B. Nitrogen
-                    C. Water vapor
-                    D. Methane
-                    """;
-
-        return question;
-    }
-    private static String questionTwo(){
-        String question = """
-                    Question 2:
-                    How do scientists collect evidence about climate?
-                    
-                    A. Using remote sensing from space with satellites
-                    B. By ground-based measurements of surface temperature,
-                       carbon dioxide concentration and sea level.
-                    C. By collecting "proxy data" from tree rings, ice cores and historical records.
-                    D. All of the above.
-                    """;
-
-        return question;
-    }
-
-    private static String questionThree(){
-        String question = """
-                Question 3:
-                What is the coldest part of an ice sheet?
-                A. The Base
-                B. The middle
-                C. The surface
-                D. It's roughly the same temperature throughout.
-                """;
-
-        return question;
-    }
-
-    private static String questionFour(){
-        String question = """
-                Question 4:
-                
-                Plants use carbon dioxide and water to make their own food 
-                through the process of photosynthesis. When they are doing a lot of
-                photosynthesis, plants reflect light strongly in 
-                which of the following wavelengths?
-                
-                A. Visible
-                B. Ultra-violet
-                C. Near-infrared
-                D. All of the above.
-                """;
-        return question;
-
-    }
-
-    private static String questionFive(){
-        String question = """
-                Question 5:
-                Which one of these decreases the level of carbon dioxide in our atmosphere?
-                
-                A. Driving non-electric cars
-                B. Planting trees.
-                C. Cutting down trees
-                D. Travelling in planes.
-                """;
-        return question;
-    }
 
 
 }
