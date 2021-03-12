@@ -1,31 +1,32 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tddClasses.Example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ExampleTest {
 
-    Example example;
+    Example calculations;
     @BeforeEach
     void setUp(){
-        example = new Example();
+        calculations = new Example();
     }
 
     @AfterEach
     void tearDown(){
-        example = null;
+        calculations = null;
     }
 
     @Test
     void test(){
-        example.setNumber(1);
-        assertEquals(1, example.getNumber());
+        calculations.setNumber(1);
+        assertEquals(1, calculations.getNumber());
     }
     @Test
     void test2(){
-        example.setNumber(-1);
-        assertEquals(0, example.getNumber());
+        calculations.setNumber(-1);
+        assertEquals(0, calculations.getNumber());
     }
 
     @Test
@@ -40,7 +41,7 @@ class ExampleTest {
         Example exam2 = new Example();
 //        example.setNumber2(3);
         System.out.println("test with first obj");
-        assertEquals(3, example.getNumber2());
+        assertEquals(3, calculations.getNumber2());
 
         System.out.println("test with second obj");
         assertEquals(3, exam2.getNumber2());
@@ -49,12 +50,12 @@ class ExampleTest {
 
     @Test
     void test5(){
-        example.setNumber(3);
+        calculations.setNumber(3);
         Example exam2 = new Example();
 
 
         System.out.println("test with first obj");
-        assertEquals(3, example.getNumber());
+        assertEquals(3, calculations.getNumber());
 
         System.out.println("test with second obj");
         assertEquals(0, exam2.getNumber());
@@ -62,12 +63,12 @@ class ExampleTest {
 
     @Test
     void test6(){
-        example.setNumber2(3);
+        calculations.setNumber2(3);
         Example exam2 = new Example();
 
 
         System.out.println("test with first obj");
-        assertEquals(3, example.getNumber2());
+        assertEquals(3, calculations.getNumber2());
 
         System.out.println("test with second obj");
         assertEquals(3, exam2.getNumber2());
@@ -78,7 +79,7 @@ class ExampleTest {
         Example exam2 = new Example();
 
         System.out.println("test with first obj");
-        assertEquals(3, example.getNumber3());
+        assertEquals(3, calculations.getNumber3());
 
         System.out.println("test with second obj");
         assertEquals(3, exam2.getNumber3());
@@ -86,13 +87,18 @@ class ExampleTest {
 
     @Test
     void test8(){
-        example.setNumber4(3);
+        calculations.setNumber4(3);
         Example exam2 = new Example();
 
         System.out.println("test with first obj");
-        assertEquals(3, example.getNumber4());
+        assertEquals(3, calculations.getNumber4());
 
         System.out.println("test with second obj");
         assertEquals(3, exam2.getNumber4());
+    }
+    @Test
+    void test9(){
+        calculations.setNumber6(7);
+        assertEquals(7, calculations.getNumber6());
     }
 }
