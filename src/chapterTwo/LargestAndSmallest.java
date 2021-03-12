@@ -1,3 +1,5 @@
+package chapterTwo;
+
 import java.util.Scanner;
 public class LargestAndSmallest{
 	public static void main (String[] args){
