@@ -88,9 +88,13 @@ public class Kata {
             }
             factors += number;
         }
+
         else factors = "invalid input";
 
+
         return factors;
+
     }
+
 
 }
