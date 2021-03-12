@@ -1,3 +1,5 @@
+package tddClasses;
+
 public class Example {
     private static int number3;
     private static int number6;
@@ -20,8 +22,8 @@ public class Example {
     public static void setNumber3(int number) {
         if (number > 0) {
             Example.number3 = number;
-
             number6 = number;
+
         }
     }
 
@@ -57,4 +59,5 @@ public class Example {
     public int getNumber6() {
         return number6;
     }
+
 }
