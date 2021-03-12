@@ -83,6 +83,7 @@ public class GlobalWarmingQuizMain {
     }
 
     private static String validateSelection(Scanner input, String userSelection) {
+        userSelection = userSelection.toUpperCase();
         while(!(userSelection.equals("A") || userSelection.equals("B") ||
                 userSelection.equals("C") || userSelection.equals("D")))
         {
