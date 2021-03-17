@@ -80,11 +80,8 @@ public class Mathematics {
 
     public static String reverseNumber(int number) {
         String reversedNumber = "";
-        if(number < 0)
-            reverseNegativeNumber(number);
-
+        if(number < 0) reverseNegativeNumber(number);
         else {
-
             while (number > 0) {
                 reversedNumber += number % 10;
                 number /= 10;
@@ -96,7 +93,7 @@ public class Mathematics {
 
     public static String reverseNegativeNumber(int negativeNumber) {
             String reversedNumber = "-";
-            negativeNumber -= (negativeNumber * 2);
+            negativeNumber = Math.abs(negativeNumber);
 
             while (negativeNumber > 0) {
                 reversedNumber += negativeNumber % 10;
@@ -104,5 +101,6 @@ public class Mathematics {
             }
             return reversedNumber;
         }
+
 
 }
