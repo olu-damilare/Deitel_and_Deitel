@@ -3,6 +3,48 @@ package Exercise;
 public class Kata {
     private double amount;
 
+    public static int sumArray(int[] array) {
+        int total = 0;
+        for (int i = 0; i < array.length; i++) {
+            total += array[i];
+        }
+        return total;
+    }
+
+    public static double averageArray(int[] array) {
+        return sumArray(array) / array.length;
+    }
+
+    public static int getMaximumArrayElement(int[] array) {
+        int maximum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            maximum = Math.max(array[i],maximum);
+        }
+        return maximum;
+    }
+
+    public static int getMinimumArrayElement(int[] array) {
+        int minimum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            minimum = Math.min(array[i],minimum);
+        }
+        return minimum;
+    }
+
+    public static int getMaximumSumInArray(int[] array) {
+        int minimum = getMinimumArrayElement(array);
+        int sum = sumArray(array);
+
+        return sum - minimum;
+    }
+
+    public static int getMinimumSumInArray(int[] array) {
+        int maximum = getMaximumArrayElement(array);
+        int sum = sumArray(array);
+
+        return sum - maximum;
+    }
+
     public double calculateAverage(int firstValue, int secondValue, int thirdValue){
         double average = ((double)(firstValue + secondValue + thirdValue))/3;
         return average;
