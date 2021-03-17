@@ -68,5 +68,39 @@ public class KataTest {
        String factors = kata.calculateFactors(-10);
         assertEquals("invalid input", factors);
     }
+    @Test
+    void testForSumOfArrayElements(){
+        int[] array = {1,-2,3,4,5};
+      assertEquals(11, Kata.sumArray(array));
+    }
+    @Test
+    void testForAverageOfArrayElements(){
+        int[] array = {1,2,3,4,5};
+        assertEquals(3, Kata.averageArray(array));
+    }
+    @Test
+    void testForMaximumArrayElement(){
+        int[] array = {1,2,3,4,-5};
+        assertEquals(4, Kata.getMaximumArrayElement(array));
+        int[] array2 = {11,21,13,34,25};
+        assertEquals(34, Kata.getMaximumArrayElement(array2));
+    }
+    @Test
+    void testForMinimumArrayElement(){
+        int[] array = {7,21,32,14,35};
+        assertEquals(7, Kata.getMinimumArrayElement(array));
+        int[] array2 = {11,21,1,34,25};
+        assertEquals(1, Kata.getMinimumArrayElement(array2));
+    }
+    @Test
+    void testForMaximumSumOfAnArrayLessByOneIndex(){
+        int[] array = {1,2,3,4,5};
+        assertEquals(14, Kata.getMaximumSumInArray(array));
+    }
+    @Test
+    void testForMinimumSumOfAnArrayLessByOneIndex(){
+        int[] array = {1,2,3,4,5};
+        assertEquals(10, Kata.getMinimumSumInArray(array));
+    }
 
 }
