@@ -18,7 +18,24 @@ public class CoinTossingTest {
     }
     @Test
     void testThatMethodCanDisplayFaceOfCoin(){
-        int face = coin.flipCoin();
-        assertEquals("Face", coin.displayFace(face));
+        assertEquals(CoinFace.TAIL, coin.displayFace(1));
+
+        assertEquals(CoinFace.HEAD, coin.displayFace(0));
+    }
+    @Test
+    void testToCountTail(){
+        coin.displayFace(1);
+        coin.displayFace(1);
+       assertEquals(2, coin.getTailCount());
+
+    }
+    @Test
+    void testToCountHead(){
+        coin.displayFace(0);
+        coin.displayFace(0);
+        coin.displayFace(0);
+        coin.displayFace(0);
+        assertEquals(4, coin.getHeadCount());
+
     }
 }
