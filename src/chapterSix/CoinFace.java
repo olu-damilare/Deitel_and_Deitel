@@ -1,2 +1,7 @@
-package chapterSix;public enum CoinFace {
+package chapterSix;
+
+public enum CoinFace {
+    HEAD,
+    TAIL
+
 }
