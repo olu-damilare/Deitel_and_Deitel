@@ -18,7 +18,13 @@ public class RollDie {
         return die[generatedFace - 1];
     }
     public static int displayFaceCount(int face){
-        return die[face - 1];
+        try {
+            return die[face - 1];
+        }
+        catch (ArrayIndexOutOfBoundsException exception ){
+            System.out.println("Invalid Index value");
+            return 0;
+        }
     }
 
 
