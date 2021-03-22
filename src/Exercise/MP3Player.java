@@ -1,3 +1,4 @@
+package Exercise;
 public class MP3Player{
 	private boolean isOn;
 	private int volume;
