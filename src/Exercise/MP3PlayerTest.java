@@ -1,6 +1,8 @@
+package Exercise;
+
 public class MP3PlayerTest{
 
-	public static void main (String... args){
+public static void main (String... args){
 
 	MP3Player myMusicPlayer = new MP3Player(15, 10);
 	myMusicPlayer.setOn(true);
