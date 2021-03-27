@@ -103,4 +103,28 @@ public class Mathematics {
         }
 
 
+    public static int decimalToHexadecimal(int decimalNumber) {
+        int hexadecimal = 0;
+        int multiplier = 1;
+        while(decimalNumber > 0){
+            hexadecimal += multiplier * (decimalNumber % 16);
+            decimalNumber /= 16;
+            multiplier *= 10;
+        }
+        return hexadecimal;
+    }
+
+    public static int decimalToOctaldecimal(int decimalNumber) {
+        int octaldecimal = 0;
+        int multiplier = 1;
+        if(decimalNumber >= 0 && decimalNumber < 8)
+            octaldecimal = decimalNumber;
+        else
+        while(decimalNumber > 0){
+            octaldecimal += multiplier * (decimalNumber % 8);
+            decimalNumber /= 8;
+            multiplier *= 10;
+        }
+        return octaldecimal;
+    }
 }
