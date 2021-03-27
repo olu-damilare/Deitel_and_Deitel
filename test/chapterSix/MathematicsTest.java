@@ -70,6 +70,18 @@ public class MathematicsTest {
      assertEquals("-4321", Mathematics.reverseNegativeNumber(-1234));
         assertEquals("-54321", Mathematics.reverseNegativeNumber(-12345));
     }
+    @Test
+    void testThatMethodConvertsDecimalToHexadecimal(){
+        assertEquals(700, Mathematics.decimalToHexadecimal(1792));
+        assertEquals(642, Mathematics.decimalToHexadecimal(1602));
+    }
+    @Test
+    void testThatMethodConvertsDecimalToOctaldecimal(){
+        assertEquals(3400, Mathematics.decimalToOctaldecimal(1792));
+        assertEquals(10, Mathematics.decimalToOctaldecimal(8));
+        assertEquals(7, Mathematics.decimalToOctaldecimal(7));
+    }
+
 
 
 }
