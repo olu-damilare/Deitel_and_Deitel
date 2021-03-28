@@ -7,7 +7,7 @@ public class WorldPopulationGrowth {
         double populationGrowthRate = 1.1;
         int year = 1;
         long worldPopulation = initialWorldPopulation + (((long)populationGrowthRate * initialWorldPopulation)/100);
-        boolean isDouble = true;
+        boolean isDouble  = true;
         int doublePopulation = 0;
         long difference =  worldPopulation - initialWorldPopulation;
 
