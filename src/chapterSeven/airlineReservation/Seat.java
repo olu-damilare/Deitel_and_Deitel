@@ -2,13 +2,13 @@ package chapterSeven.airlineReservation;
 
 public class Seat {
     private int seatNumber;
-    private SeatType seatType;
+    private SeatClass seatType;
 
     public void assignSeatNumber(int seatNumber){
         this.seatNumber = seatNumber;
     }
 
-    public void assignSeatType(SeatType seatType){
+    public void assignSeatType(SeatClass seatType){
        this.seatType = seatType;
     }
 
@@ -16,7 +16,7 @@ public class Seat {
         return seatNumber;
     }
 
-    public SeatType getSeatType() {
+    public SeatClass getSeatType() {
         return seatType;
     }
 }
