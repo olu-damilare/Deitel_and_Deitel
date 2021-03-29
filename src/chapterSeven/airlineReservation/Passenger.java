@@ -1,45 +1,59 @@
 package chapterSeven.airlineReservation;
 
-import java.util.Objects;
 
 public class Passenger {
 
 
     private final String name;
-    private int passengerId = 0;
+    private int passengerId;
     private final String phoneNumber;
     private String emailAddress;
-    private SeatType passengerSeatType;
+    private SeatClass passengerSeatType;
     private static int passengerIDCounter;
+    private int seatNumber;
 
+
+    @Override
+    public String toString() {
+        return "Passenger{" + '\n' +
+                "name = '" + name + '\n' +
+                "Passenger Id = " + passengerId + '\n' +
+                "Phone Number = '" + phoneNumber + '\n' +
+                "Email Address = '" + emailAddress + '\n' +
+                "Passenger Seat Class=" + passengerSeatType + '\n' +
+                ", seatNumber = " + seatNumber + '\n' +
+                '}';
+    }
 
     public Passenger(String name, String phoneNumber, String emailAddress) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
-
-
        passengerId = ++passengerIDCounter;
     }
 
-    @Override
-    public String toString() {
-        return "Passenger{" +
-                "name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setPassengerSeatType(SeatType seatType){
+
+    public void setPassengerSeatType(SeatClass seatType){
         passengerSeatType = seatType;
     }
 
-    public SeatType getPassengerSeatType(){
+    public SeatClass getPassengerSeatType(){
         return passengerSeatType;
     }
 
     public int getPassengerId() {
         return passengerId;
+    }
+
+    public void assignSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
     }
 }
