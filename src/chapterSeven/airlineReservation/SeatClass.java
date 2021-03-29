@@ -1,5 +1,5 @@
 package chapterSeven.airlineReservation;
 
-public enum SeatType {
+public enum SeatClass {
     FIRSTCLASS, ECONOMY, BUSINESS;
 }
