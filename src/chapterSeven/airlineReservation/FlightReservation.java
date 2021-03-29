@@ -6,42 +6,45 @@ import java.util.List;
 public class FlightReservation {
     private static List<Passenger> reservedPassengers = new ArrayList<>();
 
-    public void reserveFlight(Passenger passenger, SeatType seatType) {
+    public void reserveFlight(Passenger passenger, SeatClass seatType) {
         reservedPassengers.add(passenger);
         passenger.setPassengerSeatType(seatType);
+
     }
 
     public int getReservationID(Passenger passenger){
         int passengerReservationID = 0;
         for (int i = 0; i < reservedPassengers.size(); i++) {
-            if(reservedPassengers.get(i).equals(passenger))
+            if(reservedPassengers.get(i).equals(passenger)) {
                 passengerReservationID = i + 1;
+                break;
+            }
         }
         return passengerReservationID;
     }
 
     public static boolean hasReserved(Passenger passenger) {
-        boolean isReserved = false;
+        boolean hasReserved = false;
         for (Passenger value : reservedPassengers) {
-            if (value.equals(passenger)) {
-                isReserved = true;
+            if (value.getEmailAddress().equals(passenger.getEmailAddress())) {
+                hasReserved = true;
                 break;
             }
         }
-        return isReserved;
+        return hasReserved;
     }
 
-    public SeatType getPassengerReservedSeatType(Passenger passenger) {
-        for (int i = 0; i < reservedPassengers.size(); i++) {
-            if(reservedPassengers.get(i).equals(passenger))
-            return  reservedPassengers.get(i).getPassengerSeatType();
+    public SeatClass getPassengerReservedSeatType(Passenger passenger) {
+        for (Passenger reservedPassenger : reservedPassengers) {
+            if (reservedPassenger.getEmailAddress().equals(passenger.getEmailAddress()))
+                return reservedPassenger.getPassengerSeatType();
         }
         return null;
     }
 
     public void cancelReservation(Passenger passenger) {
         for (int i = 0; i < reservedPassengers.size(); i++) {
-            if(reservedPassengers.get(i).equals(passenger))
+            if(reservedPassengers.get(i).getEmailAddress().equals(passenger.getEmailAddress()))
                 reservedPassengers.remove(i);
         }
     }
@@ -49,4 +52,12 @@ public class FlightReservation {
     public static List<Passenger> getReservedPassenger(){
         return reservedPassengers;
     }
+
+    public static void emptyReservedPassengerList(){
+                reservedPassengers.clear();
+
+
+    }
+
+
 }
