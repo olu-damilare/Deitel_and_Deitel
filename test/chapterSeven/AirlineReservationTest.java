@@ -15,7 +15,7 @@ public class AirlineReservationTest {
     FlightBooking flightBooking;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         aeroplane = new Aeroplane("Airforce1");
         airline = new NewAirline("Dana Airline", aeroplane);
         reservation = new FlightReservation();
@@ -23,9 +23,9 @@ public class AirlineReservationTest {
     }
 
     @AfterEach
-    void tearDown(){
-        aeroplane=null;
-        airline=null;
+    void tearDown() {
+        aeroplane = null;
+        airline = null;
         reservation = null;
         flightBooking = null;
         FlightReservation.emptyReservedPassengerList();
@@ -40,7 +40,7 @@ public class AirlineReservationTest {
     }
 
     @Test
-    void testThatAirlineCanHaveAeroplanes(){
+    void testThatAirlineCanHaveAeroplanes() {
 
         assertEquals(1, airline.getTotalNumberOfAeroplanes());
         Aeroplane secondAeroplane = new Aeroplane("Eagles");
@@ -48,12 +48,13 @@ public class AirlineReservationTest {
         assertEquals(2, airline.getTotalNumberOfAeroplanes());
     }
 
-   @Test
-    void testThatAeroplaneHasFiftySeats(){
+    @Test
+    void testThatAeroplaneHasFiftySeats() {
         assertEquals(50, aeroplane.getNumberOfSeatsInPlane());
-   }
-   @Test
-    void testThatAirlineHasFlightDetails(){
+    }
+
+    @Test
+    void testThatAirlineHasFlightDetails() {
         FlightDetails flightDetails = new FlightDetails();
         assertEquals("FlightDetails{\n" +
                 "Number Of Passengers = 0\n" +
@@ -62,18 +63,20 @@ public class AirlineReservationTest {
                 "Passenger Info = null\n" +
                 "Flight  Number = 0\n" +
                 "}", flightDetails.toString());
-   }
-   @Test
-    void testThatPassengerCanReserveFirstClassSeat(){
+    }
+
+    @Test
+    void testThatPassengerCanReserveFirstClassSeat() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.FIRSTCLASS);
         assertTrue(FlightReservation.hasReserved(passenger));
         assertEquals(1, reservation.getReservationID(passenger));
         assertEquals(SeatClass.FIRSTCLASS, reservation.getPassengerReservedSeatType(passenger));
-   }
+    }
+
     @Test
-    void testThatPassengerCanReserveBusinessClassSeat(){
-       Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+    void testThatPassengerCanReserveBusinessClassSeat() {
+        Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.BUSINESS);
 
         assertEquals(1, reservation.getReservationID(passenger));
@@ -82,32 +85,33 @@ public class AirlineReservationTest {
     }
 
     @Test
-    void testThatPassengerCanReserveEconomyClassSeat(){
+    void testThatPassengerCanReserveEconomyClassSeat() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
-         reservation.reserveFlight(passenger, SeatClass.ECONOMY);
+        reservation.reserveFlight(passenger, SeatClass.ECONOMY);
 
         assertEquals(1, reservation.getReservationID(passenger));
         assertTrue(FlightReservation.hasReserved(passenger));
         assertEquals(SeatClass.ECONOMY, reservation.getPassengerReservedSeatType(passenger));
     }
 
-@Test
-    void testThatMultiplePassengersCanReserveFirstClassSeats(){
-    Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
-    Passenger passenger1 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
-    reservation.reserveFlight(passenger, SeatClass.FIRSTCLASS);
-    reservation.reserveFlight(passenger1, SeatClass.FIRSTCLASS);
-
-    assertTrue(FlightReservation.hasReserved(passenger));
-    assertTrue(FlightReservation.hasReserved(passenger1));
-    assertEquals(1, reservation.getReservationID(passenger));
-    assertEquals(2, reservation.getReservationID(passenger1));
-    assertEquals(SeatClass.FIRSTCLASS, reservation.getPassengerReservedSeatType(passenger));
-    assertEquals(SeatClass.FIRSTCLASS, reservation.getPassengerReservedSeatType(passenger1));
-
-}
     @Test
-    void testThatMultiplePassengersCanReserveBusinessClassSeats(){
+    void testThatMultiplePassengersCanReserveFirstClassSeats() {
+        Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger1 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        reservation.reserveFlight(passenger, SeatClass.FIRSTCLASS);
+        reservation.reserveFlight(passenger1, SeatClass.FIRSTCLASS);
+
+        assertTrue(FlightReservation.hasReserved(passenger));
+        assertTrue(FlightReservation.hasReserved(passenger1));
+        assertEquals(1, reservation.getReservationID(passenger));
+        assertEquals(2, reservation.getReservationID(passenger1));
+        assertEquals(SeatClass.FIRSTCLASS, reservation.getPassengerReservedSeatType(passenger));
+        assertEquals(SeatClass.FIRSTCLASS, reservation.getPassengerReservedSeatType(passenger1));
+
+    }
+
+    @Test
+    void testThatMultiplePassengersCanReserveBusinessClassSeats() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         Passenger passenger1 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.BUSINESS);
@@ -119,8 +123,9 @@ public class AirlineReservationTest {
         assertEquals(SeatClass.BUSINESS, reservation.getPassengerReservedSeatType(passenger1));
 
     }
+
     @Test
-    void testThatMultiplePassengersCanReserveEconomyClassSeats(){
+    void testThatMultiplePassengersCanReserveEconomyClassSeats() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         Passenger passenger1 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.ECONOMY);
@@ -131,13 +136,13 @@ public class AirlineReservationTest {
         reservation.reserveFlight(passenger1, SeatClass.ECONOMY);
         assertTrue(FlightReservation.hasReserved(passenger1));
         assertEquals(2, reservation.getReservationID(passenger1));
-        assertEquals(SeatClass.ECONOMY,reservation.getPassengerReservedSeatType(passenger1));
+        assertEquals(SeatClass.ECONOMY, reservation.getPassengerReservedSeatType(passenger1));
 
     }
 
 
     @Test
-    void testThatPassengerCanCancelReservation(){
+    void testThatPassengerCanCancelReservation() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.BUSINESS);
         assertTrue(FlightReservation.hasReserved(passenger));
@@ -151,65 +156,132 @@ public class AirlineReservationTest {
     }
 
     @Test
-    void testThatPassengerCanBookFirstClassSeatWithReservationID(){
+    void testThatPassengerCanBookFirstClassSeatWithReservationID() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.FIRSTCLASS);
         assertTrue(FlightReservation.hasReserved(passenger));
         assertEquals(1, reservation.getReservationID(passenger));
 
-        FlightBooking.bookFlight(reservation.getReservationID(passenger));
+        flightBooking.bookFlight(reservation.getReservationID(passenger));
         assertEquals(1, flightBooking.getTotalNumberOfFirstClassSeatsBooked());
         assertEquals(SeatClass.FIRSTCLASS, FlightBooking.getPassengerBookedSeatType(passenger));
 
-        assertTrue(FlightBooking.hasBooked(reservation.getReservationID(passenger)));
+        assertTrue(flightBooking.hasBooked(reservation.getReservationID(passenger)));
 
     }
 
     @Test
-    void testThatPassengerCanBookBusinessClassSeatWithReservationID(){
+    void testThatPassengerCanBookBusinessClassSeatWithReservationID() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.BUSINESS);
         assertTrue(FlightReservation.hasReserved(passenger));
         assertEquals(1, reservation.getReservationID(passenger));
 
-        FlightBooking.bookFlight(reservation.getReservationID(passenger));
+        flightBooking.bookFlight(reservation.getReservationID(passenger));
         assertEquals(1, flightBooking.getTotalNumberOfBusinessClassSeatsBooked());
         assertEquals(SeatClass.BUSINESS, FlightBooking.getPassengerBookedSeatType(passenger));
-        assertTrue(FlightBooking.hasBooked(passenger.getSeatNumber()));
+        assertTrue(flightBooking.hasBooked(passenger.getSeatNumber()));
 
     }
 
     @Test
-    void testThatPassengerCanBookEconomyClassSeatWithReservationID(){
+    void testThatPassengerCanBookEconomyClassSeatWithReservationID() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.ECONOMY);
         assertTrue(FlightReservation.hasReserved(passenger));
         assertEquals(1, reservation.getReservationID(passenger));
 
-        FlightBooking.bookFlight(reservation.getReservationID(passenger));
-        assertEquals(1, flightBooking.getTotalNumberOfEconomyClassSeatsBooked());
+        flightBooking.bookFlight(reservation.getReservationID(passenger));
+
         assertEquals(SeatClass.ECONOMY, FlightBooking.getPassengerBookedSeatType(passenger));
-        assertTrue(FlightBooking.hasBooked(passenger.getSeatNumber()));
+        assertTrue(flightBooking.hasBooked(passenger.getSeatNumber()));
+
+        assertEquals(1, flightBooking.getTotalNumberOfEconomyClassSeatsBooked());
 
     }
+
     @Test
-    void testThatSameReservationIDCannotBeUsedToBookAFlightTwice(){
+    void testThatSameReservationIDCannotBeUsedToBookAFlightTwice() {
         Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
         reservation.reserveFlight(passenger, SeatClass.ECONOMY);
         assertTrue(FlightReservation.hasReserved(passenger));
         assertEquals(1, reservation.getReservationID(passenger));
 
-        FlightBooking.bookFlight(reservation.getReservationID(passenger));
+        flightBooking.bookFlight(reservation.getReservationID(passenger));
         assertEquals(1, flightBooking.getTotalNumberOfEconomyClassSeatsBooked());
         assertEquals(SeatClass.ECONOMY, FlightBooking.getPassengerBookedSeatType(passenger));
-        assertTrue(FlightBooking.hasBooked(passenger.getSeatNumber()));
+        assertTrue(flightBooking.hasBooked(passenger.getSeatNumber()));
 
-        FlightBooking.bookFlight(reservation.getReservationID(passenger));
+        flightBooking.bookFlight(reservation.getReservationID(passenger));
         assertEquals(1, flightBooking.getTotalNumberOfEconomyClassSeatsBooked());
 
     }
 
+    @Test
+    void testThatPassengerCanBookFirstClassSeatWithoutHavingToFirstReserve() {
+        Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+
+        flightBooking.bookFlight(passenger, SeatClass.FIRSTCLASS);
+
+        assertEquals(1, flightBooking.getTotalNumberOfFirstClassSeatsBooked());
+        assertEquals(SeatClass.FIRSTCLASS, FlightBooking.getPassengerBookedSeatType(passenger));
+        assertTrue(flightBooking.hasBooked(passenger.getSeatNumber()));
+    }
+
+    @Test
+    void testThatPassengerCanBookBusinessClassSeatWithoutHavingToFirstReserve() {
+        Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+
+        flightBooking.bookFlight(passenger, SeatClass.BUSINESS);
+
+        assertEquals(1, flightBooking.getTotalNumberOfBusinessClassSeatsBooked());
+        assertEquals(SeatClass.BUSINESS, FlightBooking.getPassengerBookedSeatType(passenger));
+        assertTrue(flightBooking.hasBooked(passenger.getSeatNumber()));
+    }
+
+    @Test
+    void testThatPassengerCanBookEconomyClassSeatWithoutHavingToFirstReserve() {
+        Passenger passenger = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+
+        flightBooking.bookFlight(passenger, SeatClass.ECONOMY);
+
+        assertEquals(1, flightBooking.getTotalNumberOfEconomyClassSeatsBooked());
+        assertEquals(SeatClass.ECONOMY, FlightBooking.getPassengerBookedSeatType(passenger));
+        assertTrue(flightBooking.hasBooked(passenger.getSeatNumber()));
+    }
+
+    @Test
+    void testThatOnlyTenFirstClassSeatsCanBeBooked() {
+        Passenger passenger1 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger2 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger3 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger4 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger5 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger6 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger7 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger8 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger9 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger10 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
+        Passenger passenger11 = new Passenger("Olu Jola", "0000", "bina@jolo.com");
 
 
+        flightBooking.bookFlight(passenger1, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger2, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger3, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger4, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger5, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger6, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger7, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger8, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger9, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger10, SeatClass.FIRSTCLASS);
+        flightBooking.bookFlight(passenger11, SeatClass.FIRSTCLASS);
 
+        assertEquals(10, flightBooking.getTotalNumberOfFirstClassSeatsBooked());
+    }
 }
+
+
+
+
+
