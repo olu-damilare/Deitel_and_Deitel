@@ -61,43 +61,36 @@ public class ATM {
                         break;
                     else
                         {
-                        switch (userChoice)
-                        {
-                            case 1:
-                                System.out.println("How much do you want to deposit? ");
-                                double depositAmount = input.nextDouble();
-                                depositAmountIsValid(myAccount, depositAmount);
-                                break;
-
-                            case 2:
-                                System.out.println("How much do you want to withdraw?");
-                                double withdrawAmount = input.nextDouble();
-                                withdrawAmountIsValid(myAccount, userPin, withdrawAmount);
-                                break;
-                            case 3:
-                                System.out.println("Enter beneficiary account number");
-                                int beneficiaryAccountNumber = input.nextInt();
-
-                                validBeneficiaryAccount(myAccount, beneficiaryAccount, userPin, beneficiaryAccountNumber);
-                                break;
-
-                            case 4:
-                                System.out.println("Your account balance is " + myAccount.getBalance());
-                                break;
-                            case 5:
-                                System.out.println("Enter beneficiary phone number");
-                                int beneficiaryPhoneNumber = input.nextInt();
-                                System.out.println("Transaction successful");
-                                break;
-                            case 6:
-                                System.out.println("Please input your new pin");
-                                userPin = input.next();
-                                myAccount.setPin(userPin);
-                                System.out.println("Pin changed successfully");
-                                break;
-                            default:
-                                System.out.println("Invalid selection");
-                        }
+                             switch (userChoice) {
+                                case 1 -> {
+                                    System.out.println("How much do you want to deposit? ");
+                                    double depositAmount = input.nextDouble();
+                                    depositAmountIsValid(myAccount, depositAmount);
+                                }
+                                case 2 -> {
+                                    System.out.println("How much do you want to withdraw?");
+                                    double withdrawAmount = input.nextDouble();
+                                    withdrawAmountIsValid(myAccount, userPin, withdrawAmount);
+                                }
+                                case 3 -> {
+                                    System.out.println("Enter beneficiary account number");
+                                    int beneficiaryAccountNumber = input.nextInt();
+                                    validBeneficiaryAccount(myAccount, beneficiaryAccount, userPin, beneficiaryAccountNumber);
+                                }
+                                case 4 -> System.out.println("Your account balance is " + myAccount.getBalance());
+                                case 5 -> {
+                                    System.out.println("Enter beneficiary phone number");
+                                    int beneficiaryPhoneNumber = input.nextInt();
+                                    System.out.println("Transaction successful");
+                                }
+                                case 6 -> {
+                                    System.out.println("Please input your new pin");
+                                    userPin = input.next();
+                                    myAccount.setPin(userPin);
+                                    System.out.println("Pin changed successfully");
+                                }
+                                default -> System.out.println("Invalid selection");
+                            }
                     }
                     System.out.println();
                     System.out.println("""
