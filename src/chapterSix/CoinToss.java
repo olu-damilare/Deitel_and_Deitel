@@ -17,16 +17,14 @@ public class CoinToss {
 
     public CoinFace displayFace(int faceValue) {
 
-        switch (faceValue){
-            case 0: {
+        switch (faceValue) {
+            case 0 -> {
                 face = CoinFace.HEAD;
                 headCount++;
-                break;
             }
-            case 1: {
+            case 1 -> {
                 face = CoinFace.TAIL;
                 tailCount++;
-                break;
             }
         }
         return face;
