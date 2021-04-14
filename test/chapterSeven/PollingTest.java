@@ -115,32 +115,130 @@ public class PollingTest {
     }
     @Test
     void testThatResponsesOfAllTopicsAreDisplayed(){
-        int racismPollRate;
-        int overpopulationPollRate;
-        int politicalIssuesPollRate;
-        int globalEnvironPollRate;
-        int genderInequalityRatePoll;
+                   polling.rateGlobalEnvironmentalIssuesTopic(8);
+            polling.ratePoliticalIssueTopic(2);
+            polling.rateRacismIssuesTopic(4);
+            polling.rateOverpopulationIssuesTopic(5);
+            polling.rateGenderInequalityIssuesTopic(6);
 
-
-        for (int i = 0; i < 100; i++) {
-            racismPollRate = 1 + random.nextInt(10);
-            overpopulationPollRate = 1 + random.nextInt(10);
-            politicalIssuesPollRate = 1 + random.nextInt(10);
-            globalEnvironPollRate = 1 + random.nextInt(10);
-            genderInequalityRatePoll = 1 + random.nextInt(10);
-
-            polling.rateGlobalEnvironmentalIssuesTopic(globalEnvironPollRate);
-            polling.ratePoliticalIssueTopic(politicalIssuesPollRate);
-            polling.rateRacismIssuesTopic(racismPollRate);
-            polling.rateOverpopulationIssuesTopic(overpopulationPollRate);
-            polling.rateGenderInequalityIssuesTopic(genderInequalityRatePoll);
-        }
 
         assertEquals("""
-                Political Issues:      11 08 04 08 11 12 11 12 10 13\s
-                Global Environment:    11 13 09 11 09 06 07 08 13 13\s
-                Overpopulation issues: 12 13 08 09 08 09 09 10 12 10\s
-                Gender Inequality:     09 14 06 06 10 09 18 13 06 09\s
-                Racism Issues:         09 06 07 09 10 14 07 11 15 12\s""", polling.displayResponses());
+                        Political Issues:      00 01 00 00 00 00 00 00 00 00\s
+                        Global Environment:    00 00 00 00 00 00 00 01 00 00\s
+                        Overpopulation issues: 00 00 00 00 01 00 00 00 00 00\s
+                        Gender Inequality:     00 00 00 00 00 01 00 00 00 00\s
+                        Racism Issues:         00 00 00 01 00 00 00 00 00 00\s
+                        """
+                , polling.displayResponses());
     }
+
+    @Test
+    void testThatAverageOfPoliticalIssuesResponsesObtained(){
+        polling.ratePoliticalIssueTopic(2);
+        polling.ratePoliticalIssueTopic(6);
+        polling.ratePoliticalIssueTopic(2);
+        polling.ratePoliticalIssueTopic(8);
+        polling.ratePoliticalIssueTopic(5);
+        polling.ratePoliticalIssueTopic(2);
+        polling.ratePoliticalIssueTopic(6);
+        polling.ratePoliticalIssueTopic(2);
+        polling.ratePoliticalIssueTopic(8);
+        polling.ratePoliticalIssueTopic(5);
+        polling.ratePoliticalIssueTopic(2);
+        polling.ratePoliticalIssueTopic(6);
+        polling.ratePoliticalIssueTopic(2);
+        polling.ratePoliticalIssueTopic(8);
+        polling.ratePoliticalIssueTopic(5);
+
+        assertEquals(1.5, polling.getAverageRatingForPoliticalIssues());
+    }
+    @Test
+    void testThatAverageOfGlobalEnvironmentalIssuesResponsesObtained(){
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(6);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(8);
+        polling.rateGlobalEnvironmentalIssuesTopic(5);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(6);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(8);
+        polling.rateGlobalEnvironmentalIssuesTopic(5);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(6);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(8);
+        polling.rateGlobalEnvironmentalIssuesTopic(5);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(6);
+        polling.rateGlobalEnvironmentalIssuesTopic(2);
+        polling.rateGlobalEnvironmentalIssuesTopic(8);
+        polling.rateGlobalEnvironmentalIssuesTopic(5);
+
+        assertEquals(2.0, polling.getAverageRatingForGlobalEnvironmentalIssues());
+    }
+    @Test
+    void testThatAverageOfOverpopulationIssuesResponsesObtained(){
+        polling.rateOverpopulationIssuesTopic(2);
+        polling.rateOverpopulationIssuesTopic(6);
+        polling.rateOverpopulationIssuesTopic(2);
+        polling.rateOverpopulationIssuesTopic(8);
+        polling.rateOverpopulationIssuesTopic(5);
+        polling.rateOverpopulationIssuesTopic(2);
+        polling.rateOverpopulationIssuesTopic(6);
+        polling.rateOverpopulationIssuesTopic(2);
+        polling.rateOverpopulationIssuesTopic(8);
+        polling.rateOverpopulationIssuesTopic(5);
+        polling.rateOverpopulationIssuesTopic(2);
+        polling.rateOverpopulationIssuesTopic(6);
+        polling.rateOverpopulationIssuesTopic(2);
+        polling.rateOverpopulationIssuesTopic(8);
+        polling.rateOverpopulationIssuesTopic(5);
+
+
+        assertEquals(1.5, polling.getAverageRatingForOverpopulationIssues());
+    }
+    @Test
+    void testThatAverageOfGenderInequalityIssuesResponsesObtained(){
+        polling.rateGenderInequalityIssuesTopic(2);
+        polling.rateGenderInequalityIssuesTopic(8);
+        polling.rateGenderInequalityIssuesTopic(4);
+        polling.rateGenderInequalityIssuesTopic(7);
+        polling.rateGenderInequalityIssuesTopic(9);
+        polling.rateGenderInequalityIssuesTopic(10);
+        polling.rateGenderInequalityIssuesTopic(2);
+        polling.rateGenderInequalityIssuesTopic(8);
+        polling.rateGenderInequalityIssuesTopic(4);
+        polling.rateGenderInequalityIssuesTopic(7);
+        polling.rateGenderInequalityIssuesTopic(9);
+        polling.rateGenderInequalityIssuesTopic(10);
+        polling.rateGenderInequalityIssuesTopic(2);
+        polling.rateGenderInequalityIssuesTopic(8);
+        polling.rateGenderInequalityIssuesTopic(4);
+        polling.rateGenderInequalityIssuesTopic(7);
+        polling.rateGenderInequalityIssuesTopic(9);
+        polling.rateGenderInequalityIssuesTopic(10);
+
+
+        assertEquals(1.8, polling.getAverageRatingForGenderInequalityIssues());
+    }
+
+    @Test
+    void testThatAverageOfRacismIssuesResponsesObtained(){
+        polling.rateRacismIssuesTopic(2);
+        polling.rateRacismIssuesTopic(5);
+        polling.rateRacismIssuesTopic(1);
+        polling.rateRacismIssuesTopic(10);
+        polling.rateRacismIssuesTopic(8);
+        polling.rateRacismIssuesTopic(2);
+        polling.rateRacismIssuesTopic(5);
+        polling.rateRacismIssuesTopic(1);
+        polling.rateRacismIssuesTopic(10);
+        polling.rateRacismIssuesTopic(8);
+
+
+        assertEquals(1.0, polling.getAverageRatingForRacismIssues());
+    }
+
+
 }
