@@ -106,4 +106,44 @@ public class Polling {
         topics[3] = "Gender Inequality:     ";
         topics[4] = "Racism Issues:         ";
     }
+
+    public double getAverageRatingForPoliticalIssues() {
+        double total = 0.0;
+        for (int i = 0; i < responses[0].length; i++) {
+            total += responses[0][i];
+        }
+        return total/responses[0].length;
+    }
+
+    public double getAverageRatingForGlobalEnvironmentalIssues() {
+        double total = 0.0;
+        for (int i = 0; i < responses[1].length; i++) {
+            total += responses[1][i];
+        }
+        return total/responses[1].length;
+    }
+
+    public double getAverageRatingForOverpopulationIssues() {
+        double total = 0.0;
+        for (int i = 0; i < responses[2].length; i++) {
+            total += responses[2][i];
+        }
+        return total/responses[2].length;
+    }
+
+    public double getAverageRatingForGenderInequalityIssues() {
+        double total = 0.0;
+        for (int i = 0; i < responses[3].length; i++) {
+            total += responses[3][i];
+        }
+        return total/responses[3].length;
+    }
+
+    public double getAverageRatingForRacismIssues() {
+        double total = 0.0;
+        for (int i = 0; i < responses[4].length; i++) {
+            total += responses[4][i];
+        }
+        return total/responses[4].length;
+    }
 }
