@@ -1,6 +1,5 @@
 package tddClasses;
 
-import Exercise.Array;
 import Exercise.DuplicateElements;
 import org.junit.jupiter.api.Test;
 
@@ -16,5 +15,7 @@ public class EliminateDuplicateTest {
 
        assertEquals(8, DuplicateElements.eliminateDuplicates(numbers));
         assertEquals(6, DuplicateElements.eliminateDuplicates(secondNumbers));
+        String[] nums = new String[0];
+        System.out.println(nums.length);
     }
 }
