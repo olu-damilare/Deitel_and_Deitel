@@ -157,6 +157,6 @@ public class TurtleTest {
         turtle.moveForwardBy(6);
         turtle.movePenUp();
         assertTrue(turtle.isPenUp());
-        assertEquals("******", board.displayBoard());
+        assertEquals("******", turtle.displayBoard());
     }
 }
