@@ -41,4 +41,12 @@ public class Position {
     public void decreaseValueOfYCoordinateBy(int numberOfSteps) {
         Y_coordinate -= numberOfSteps;
     }
+
+    public int getCoordinateOfY() {
+        return Y_coordinate;
+    }
+
+    public int getCoordinateOfX() {
+        return X_coordinate;
+    }
 }
