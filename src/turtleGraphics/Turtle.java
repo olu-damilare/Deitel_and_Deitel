@@ -6,7 +6,6 @@ public class Turtle {
     private final Pen pen;
     private Direction currentDirection;
     private Position currentPosition;
-    private Board board;
 
     public Turtle(Pen pen) {
         this.pen = pen;
@@ -54,18 +53,12 @@ public class Turtle {
     }
 
     public void moveForwardBy(int numberOfSteps) {
+        numberOfSteps -= 1;
         switch(currentDirection){
-            case EAST -> {
-                currentPosition.increaseValueOfXCoordinateBy(numberOfSteps);
-                for (int i = 0; i < numberOfSteps; i++) {
-                    if(!pen.isUp())
-                        board.drawEastWard(i);
-                }
-            }
+            case EAST -> currentPosition.increaseValueOfXCoordinateBy(numberOfSteps);
             case SOUTH -> currentPosition.increaseValueOfYCoordinateBy(numberOfSteps);
             case WEST -> currentPosition.decreaseValueOfXCoordinateBy(numberOfSteps);
             case NORTH -> currentPosition.decreaseValueOfYCoordinateBy(numberOfSteps);
-
         }
     }
 
@@ -73,7 +66,33 @@ public class Turtle {
         return currentPosition;
     }
 
-    public String displayBoard() {
-        return board.displayBoard();
+    public void writeOn(SketchPad sketchPad, int numberOfSteps) {
+        int[][] floor = sketchPad.getFloor();
+        switch (currentDirection) {
+            case EAST -> {
+                if (!pen.isUp())
+                    for (int i = 0; i < numberOfSteps; i++)
+                        floor[currentPosition.getCoordinateOfY()][currentPosition.getCoordinateOfX() + i] = 1;
+                moveForwardBy(numberOfSteps);
+            }
+            case WEST -> {
+                if (!pen.isUp())
+                    for (int i = 0; i < numberOfSteps; i++)
+                        floor[currentPosition.getCoordinateOfY()][currentPosition.getCoordinateOfX() - i] = 1;
+                moveForwardBy(numberOfSteps);
+            }
+            case SOUTH -> {
+                if (!pen.isUp())
+                    for (int i = 0; i < numberOfSteps; i++)
+                        floor[currentPosition.getCoordinateOfY() + i][currentPosition.getCoordinateOfX()] = 1;
+                moveForwardBy(numberOfSteps);
+            }
+            case NORTH -> {
+                if (!pen.isUp())
+                    for (int i = 0; i < numberOfSteps; i++)
+                        floor[currentPosition.getCoordinateOfY() - i][currentPosition.getCoordinateOfX()] = 1;
+                moveForwardBy(numberOfSteps);
+            }
+        }
     }
 }
