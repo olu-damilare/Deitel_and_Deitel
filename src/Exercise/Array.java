@@ -1,11 +1,13 @@
 package Exercise;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-
 public class Array {
 
+    private static final int[][] numbers = new int[6][6];
+
+
+    public static void setNumber(int row,int column, int value){
+        numbers[row][column] = value;
+    }
 
     public static int obtainLonelyInteger(int[] numbers) {
         int uniqueNumber = 0;
@@ -21,7 +23,7 @@ public class Array {
         return uniqueNumber;
     }
 
-    public void displayIntArrayTable(int[][] array){
+    public static void displayIntArrayTable(int[][] array){
         for (int[] ints : array) {
             for (int anInt : ints) {
                 System.out.print(anInt + " ");
@@ -46,6 +48,12 @@ public class Array {
 
 
     public static void main(String[] args) {
+        Array.displayIntArrayTable(numbers);
+        System.out.println();
+
+        Array.setNumber(3,4,11);
+        Array.displayIntArrayTable(numbers);
+
 
             int[] newArray = {2,3,4,5,6};
             int maxSum = 0;
