@@ -20,4 +20,8 @@ public class Board {
         }
         return pattern;
     }
+
+    public int[][] getFloor() {
+        return board;
+    }
 }
