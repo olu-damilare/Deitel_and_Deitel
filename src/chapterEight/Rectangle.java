@@ -18,6 +18,7 @@ public class Rectangle {
         boolean widthIsValid = width > 0.0 && width < 20.0;
         if(widthIsValid)
         this.width = width;
+
     }
 
     public double getWidth() {
