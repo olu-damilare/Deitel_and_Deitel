@@ -222,5 +222,6 @@ public class TurtleTest {
         for (int i = 0; i < numberOfSteps; i++)
             assertEquals(1, sketchPad.getFloor()[0][i]);
         assertEquals(new Position(0,0), turtle.getCurrentPosition());
+
     }
 }
