@@ -1,6 +1,5 @@
 package Exercise;
 
-import java.util.Arrays;
 
 public class Position {
     public static int[] getFirstAndLast(int[] nums, int val) {
@@ -8,21 +7,19 @@ public class Position {
         if (nums == null || nums.length == 0)
             return newList;
 
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == val) {
-                newList[0] = i;
-                break;
-            }
+        int start = 0;
+        int numberOfOccurrence = -1;
+
+        for (int num : nums) {
+            if (num < val)
+                start++;
+            if (num == val)
+                numberOfOccurrence++;
         }
 
-        for (int j = nums.length - 1; j > 0; j--) {
-            if (nums[j] == val) {
-                newList[1] = j;
-                break;
+        newList[0] = start;
+        newList[1] = start + numberOfOccurrence;
 
-            }
-        }
         return newList;
     }
 }
