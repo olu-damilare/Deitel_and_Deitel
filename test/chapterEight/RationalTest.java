@@ -43,4 +43,6 @@ public class RationalTest {
         Rational rational = new Rational(2, 6);
         assertEquals("0.333", rational.getFloatingPoints(3));
     }
+
+
 }
