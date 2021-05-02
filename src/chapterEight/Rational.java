@@ -1,6 +1,7 @@
 package chapterEight;
 
 import java.text.NumberFormat;
+import java.util.Objects;
 
 public class Rational {
 
@@ -9,12 +10,26 @@ public class Rational {
     private final int denominator;
 
     public Rational(int numerator, int denominator) {
-        if(denominator % numerator == 0){
-            this.numerator = 1;
-            this.denominator = denominator/numerator;}
-        else {
-            this.numerator = numerator;
-            this.denominator = denominator;}
+        int greatestCommonDivisor = calculateGreatestCommonDivisor(numerator, denominator);
+        if(denominator < 0)
+            this.numerator = (-1 * numerator) / greatestCommonDivisor;
+        else if(denominator > 0)
+            this.numerator = numerator / greatestCommonDivisor;
+        else
+           this.numerator = 0;
+
+        this.denominator = Math.abs(denominator) / greatestCommonDivisor;
+    }
+
+    private int calculateGreatestCommonDivisor(int numerator, int denominator){
+        denominator = Math.abs(denominator);
+        numerator = Math.abs(numerator);
+        int greatestCommonDivisor = 1;
+        for (int i = 1; i <= numerator && i <= denominator; i++) {
+            if(numerator % i == 0 && denominator % i == 0)
+                greatestCommonDivisor = i;
+        }
+        return greatestCommonDivisor;
     }
 
     public static Rational add(Rational firstRationalNumbers, Rational secondRationalNumbers) {
@@ -55,5 +70,17 @@ public class Rational {
         NumberFormat nf = NumberFormat.getInstance();
         nf.setMaximumFractionDigits(decimalPointsPrecision);
         return nf.format((numerator * 1.0)/denominator);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Rational rational = (Rational) o;
+        return numerator == rational.numerator && denominator == rational.denominator;
+    }
+
+    @Override
+    public String toString() {
+        return numerator + "/" + denominator;
     }
 }
