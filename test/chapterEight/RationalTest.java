@@ -3,6 +3,7 @@ package chapterEight;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RationalTest {
 
@@ -44,5 +45,10 @@ public class RationalTest {
         assertEquals("0.333", rational.getFloatingPoints(3));
     }
 
-
+    @Test
+    void TestThatTwoRationalNumbersAreEqual() {
+        Rational firstRationalNumbers = new Rational(2, 6);
+        Rational secondRationalNumbers = new Rational(1, 3);
+        assertTrue(firstRationalNumbers.equals(secondRationalNumbers));
+    }
 }
