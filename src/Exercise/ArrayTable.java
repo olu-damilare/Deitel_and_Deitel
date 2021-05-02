@@ -9,6 +9,6 @@ public class ArrayTable {
 
         System.out.println("sum is " + array.getArraySum(table));
 
-
     }
+
 }
