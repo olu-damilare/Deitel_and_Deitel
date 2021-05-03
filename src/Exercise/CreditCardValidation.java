@@ -2,7 +2,7 @@ package Exercise;
 
 public class CreditCardValidation {
 
-    public int calculateSumOfDoubleEvenPlace(long creditCardNumber) {
+    private int calculateSumOfDoubleEvenPlace(long creditCardNumber) {
         char[] arrayNums = String.valueOf(creditCardNumber).toCharArray();
         int sum = 0;
         for (int i = arrayNums.length - 2; i >= 0; i-=2) {
@@ -20,7 +20,7 @@ public class CreditCardValidation {
 
     }
 
-    public int calculateSumOfOddPlace(long creditCardNumber) {
+    private int calculateSumOfOddPlace(long creditCardNumber) {
         char[] arrayNums = String.valueOf(creditCardNumber).toCharArray();
         int sum = 0;
         for (int i = arrayNums.length - 1; i >= 0; i-=2) {
