@@ -23,7 +23,7 @@ public class EmployeeTest {
     void testThatCommissionEmployeeHasAnEarning(){
         Calendar dateOfBirth = new GregorianCalendar(1984, Calendar.NOVEMBER, 23);
         CommissionEmployee commissionEmployee = new CommissionEmployee("Joe", "Doe", "123456789", 100000, 15, dateOfBirth);
-        assertEquals(15000, commissionEmployee.calculateEarning());
+        assertEquals(15000, commissionEmployee.calculatePaymentAmount());
     }
 
     @Test
@@ -36,13 +36,13 @@ public class EmployeeTest {
         assertEquals(100000, employee.getGrossSales());
         assertEquals(15, employee.getCommissionRate());
         assertEquals(50000, employee.getBaseSalary());
-
     }
+
     @Test
     void testThatBasePlusCommissionEmployeeHasAnEarning(){
         Calendar dateOfBirth = new GregorianCalendar(1984, Calendar.NOVEMBER, 23);
         BasePlusCommissionEmployee employee = new BasePlusCommissionEmployee("Joe", "Doe", "123456789", 100000, 15, 50000, dateOfBirth);
-        assertEquals(65000, employee.calculateEarning());
+        assertEquals(65000, employee.calculatePaymentAmount());
     }
 
 }
