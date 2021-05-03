@@ -1,8 +1,10 @@
 package chapterNine;
 
+import chapterTen.Payable;
+
 import java.util.*;
 
-public abstract class Employee {
+public abstract class Employee implements Payable {
     private final String firstName;
     private final String lastName;
     private final String socialSecurityNumber;
@@ -35,7 +37,6 @@ public abstract class Employee {
                 "Social Security Number = " + getSocialSecurityNumber() + '\n';
     }
 
-    public abstract double calculateEarning();
 
     public int getYearOfBirth(){
         return dateOfBirth.get(Calendar.YEAR);
