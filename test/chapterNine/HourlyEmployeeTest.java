@@ -28,24 +28,24 @@ public class HourlyEmployeeTest {
     }
     @Test
     void TestThatHourlyEmployeeEarningCanBeCalculated(){
-        assertEquals(4000, employee.calculateEarning());
+        assertEquals(4000, employee.calculatePaymentAmount());
     }
     @Test
     void TestThatHoursWorkedCanBeUpdated(){
-        assertEquals(4000, employee.calculateEarning());
+        assertEquals(4000, employee.calculatePaymentAmount());
         employee.setHoursWorked(38);
-        assertEquals(3800, employee.calculateEarning());
+        assertEquals(3800, employee.calculatePaymentAmount());
     }
     @Test
     void TestThatWageCanBeUpdated(){
-        assertEquals(4000, employee.calculateEarning());
+        assertEquals(4000, employee.calculatePaymentAmount());
         employee.setWagePerHour(150);
-        assertEquals(6000, employee.calculateEarning());
+        assertEquals(6000, employee.calculatePaymentAmount());
     }
 
     @Test
     void TestThatHourlyEmployeeCanEarnABonusForHoursGreaterThanForty(){
         HourlyEmployee employee = new HourlyEmployee("John", "Doe", "123456789", 41, 100, dateOfBirth);
-        assertEquals(4150, employee.calculateEarning());
+        assertEquals(4150, employee.calculatePaymentAmount());
     }
 }
