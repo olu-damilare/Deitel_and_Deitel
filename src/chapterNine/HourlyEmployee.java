@@ -33,7 +33,7 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
-    public double calculateEarning() {
+    public double calculatePaymentAmount() {
         if(getHoursWorked() > 40)
            return ((getHoursWorked() - 40) * 1.5 + 40) * getWagePerHour();
         else
@@ -48,5 +48,13 @@ public class HourlyEmployee extends Employee {
     public void setWagePerHour(double wagePerHour) {
         validateWagePerHour(wagePerHour);
         this.wagePerHour = wagePerHour;
+    }
+
+    @Override
+    public String toString() {
+        return "HourlyEmployee\n" +
+                super.toString() +
+                "Hours worked = " + hoursWorked + '\n' +
+                "Wage per Hour = " + wagePerHour + '\n';
     }
 }
