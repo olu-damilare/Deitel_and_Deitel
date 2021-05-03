@@ -6,7 +6,6 @@ import chapterNine.Employee;
 import chapterNine.HourlyEmployee;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,7 +19,7 @@ public class PayrollModificationTest {
         assertEquals("Joe", employee.getFirstName());
         assertEquals("Doe", employee.getLastName());
         assertEquals("123456789", employee.getSocialSecurityNumber());
-        assertEquals(2000, employee.calculateEarning());
+        assertEquals(2000, employee.calculatePaymentAmount());
         assertEquals(1984, employee.getYearOfBirth());
         assertEquals(Calendar.JULY, employee.getMonthOfBirth());
         assertEquals(12, employee.getDayOfBirth());
@@ -39,12 +38,11 @@ public class PayrollModificationTest {
         Employee basePlusCommissionEmployee = new BasePlusCommissionEmployee("Joe", "Doe", "123456789", 100000, 15, 50000, dateOfBirth);
 
         Payroll payroll = new Payroll(salariedEmployee, hourlyEmployee, commissionEmployee, basePlusCommissionEmployee);
-        assertEquals(4, payroll.getTotalNumberOfEmployees());
-        assertEquals(2000, payroll.calculateEarning(salariedEmployee));
-        assertEquals(4000, payroll.calculateEarning(hourlyEmployee));
-        assertEquals(15000, payroll.calculateEarning(commissionEmployee));
-        assertEquals(65000, payroll.calculateEarning(basePlusCommissionEmployee));
-
+        assertEquals(4, payroll.getTotalNumberOfPayable());
+        assertEquals(2000, payroll.calculatePayments(salariedEmployee));
+        assertEquals(4000, payroll.calculatePayments(hourlyEmployee));
+        assertEquals(15000, payroll.calculatePayments(commissionEmployee));
+        assertEquals(70000, payroll.calculatePayments(basePlusCommissionEmployee));
     }
 
     @Test
@@ -59,11 +57,33 @@ public class PayrollModificationTest {
         Employee basePlusCommissionEmployee = new BasePlusCommissionEmployee("Joe", "Doe", "123456789", 100000, 15, 50000, dateOfBirth);
 
         Payroll payroll = new Payroll(salariedEmployee, hourlyEmployee, commissionEmployee, basePlusCommissionEmployee);
-        assertEquals(4, payroll.getTotalNumberOfEmployees());
-        assertEquals(2000, payroll.calculateEarning(salariedEmployee));
-        assertEquals(4000, payroll.calculateEarning(hourlyEmployee));
-        assertEquals(15100, payroll.calculateEarning(commissionEmployee));
-        assertEquals(65000, payroll.calculateEarning(basePlusCommissionEmployee));
+        assertEquals(4, payroll.getTotalNumberOfPayable());
+        assertEquals(2000, payroll.calculatePayments(salariedEmployee));
+        assertEquals(4000, payroll.calculatePayments(hourlyEmployee));
+        assertEquals(15100, payroll.calculatePayments(commissionEmployee));
+        assertEquals(70000, payroll.calculatePayments(basePlusCommissionEmployee));
+    }
+
+    @Test
+    void testThatPieceWorkerIsATypeOfEmployee(){
+        Calendar dateOfBirth = new GregorianCalendar(1984, Calendar.JULY, 12);
+        PieceWorker employee = new PieceWorker("Joe", "Doe", "123456789", dateOfBirth, 500, 8);
+        assertEquals("Joe", employee.getFirstName());
+        assertEquals("Doe", employee.getLastName());
+        assertEquals("123456789", employee.getSocialSecurityNumber());
+        assertEquals(4000, employee.calculatePaymentAmount());
+        assertEquals(1984, employee.getYearOfBirth());
+        assertEquals(Calendar.JULY, employee.getMonthOfBirth());
+        assertEquals(12, employee.getDayOfBirth());
+        assertEquals(dateOfBirth, employee.getDateOfBirth());
+    }
+
+    @Test
+    void testThatPayrollOfPieceWorkerEmployeeCanBeCalculated(){
+        Calendar dateOfBirth = new GregorianCalendar(1984, Calendar.JULY, 12);
+        PieceWorker employee = new PieceWorker("Joe", "Doe", "123456789", dateOfBirth, 500, 8);
+        Payroll payroll = new Payroll(employee);
+        assertEquals(4000, payroll.calculatePayments(employee));
     }
 
 }
