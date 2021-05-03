@@ -13,13 +13,12 @@ public class SalariedEmployee extends Employee {
         this.weeklyWage = weeklyWage;
     }
 
-    @Override
-    public double calculateEarning() {
+    public double calculatePaymentAmount() {
         return weeklyWage;
     }
 
     @Override
     public String toString() {
-        return  "Weekly Wage = " + weeklyWage;
+        return  "Salaried employee\n" + super.toString() + "Weekly Wage = " + weeklyWage;
     }
 }
