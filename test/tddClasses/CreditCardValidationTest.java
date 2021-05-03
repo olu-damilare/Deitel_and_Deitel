@@ -15,15 +15,6 @@ public class CreditCardValidationTest {
         validate = new CreditCardValidation();
     }
 
-    @Test
-    void testThatTheSumOfDoubleOfEvenPositionsCanBeObtained(){
-       assertEquals(37, validate.calculateSumOfDoubleEvenPlace(creditCardNumber));
-    }
-
-    @Test
-    void testThatTheSumOfOddPositionsCanBeObtained(){
-        assertEquals(38, validate.calculateSumOfOddPlace(creditCardNumber));
-    }
 
     @Test
     void testThatCreditCardIsInvalid(){
