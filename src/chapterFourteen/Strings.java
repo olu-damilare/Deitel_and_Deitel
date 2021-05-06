@@ -2,10 +2,10 @@ package chapterFourteen;
 
 import java.util.Random;
 
-
 public class Strings{
 
     private String[][] words = new String[4][];
+
     public String splitPhoneNumber(String value){
         StringBuilder suffix = new StringBuilder();
         int counter = 1;
@@ -98,15 +98,36 @@ public class Strings{
         return reversedSentence.toString();
     }
 
-
-    public static void main(String[] args) {
-        Strings string = new Strings();
-        System.out.println(string.reverseSentence("What is your name?")); ;
-
-        //System.out.printf("%s", (int)'c');
-
+    public int numberOfCharOccurrence(String sentence, char character){
+        sentence = sentence.toLowerCase();
+        character = Character.toLowerCase(character);
+        int numberOfOccurrence = 0;
+        for (int i = 0; i < sentence.length(); i++) {
+            if(character == sentence.charAt(i))
+                numberOfOccurrence++;
+        }
+        return numberOfOccurrence;
     }
 
+    public int numberOfStringOccurrence(String sentence, String subSentence){
+        sentence = sentence.toLowerCase();
+        subSentence = subSentence.toLowerCase();
+        int numberOfOccurrence = 0;
+        int length = subSentence.length();
+        for (int i = 0; i < sentence.length(); i++) {
+            if(sentence.regionMatches(i, subSentence, 0, length))
+                numberOfOccurrence++;
+        }
+        return numberOfOccurrence;
+    }
 
-
+    public String pigLatin(String sentence){
+        sentence = sentence.toLowerCase();
+        String[] words = sentence.split(" ");
+        StringBuilder latinSentence = new StringBuilder();
+        for (String word : words) {
+            latinSentence.append(word.substring(1)).append(word.charAt(0)).append("ay").append(" ");
+        }
+        return latinSentence.toString();
+    }
 }
