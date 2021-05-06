@@ -3,28 +3,27 @@ package Exercise;
 public class CreditCardValidation {
 
     private int calculateSumOfDoubleEvenPlace(long creditCardNumber) {
-        char[] arrayNums = String.valueOf(creditCardNumber).toCharArray();
+        String numsToString = String.valueOf(creditCardNumber);
         int sum = 0;
-        for (int i = arrayNums.length - 2; i >= 0; i-=2) {
-            sum += getDigit(arrayNums[i]);
+        for (int i = numsToString.length() - 2; i >= 0; i -= 2) {
+           sum += getDigit(numsToString.charAt(i));
         }
         return sum;
     }
 
-    private int getDigit(char arrayNum) {
-        int tempSum = 2 * Character.getNumericValue(arrayNum);
+    private int getDigit(char character) {
+        int tempSum = 2 * Character.getNumericValue(character);
         if(tempSum < 10)
             return tempSum;
         else
             return (tempSum / 10) + (tempSum % 10);
-
     }
 
     private int calculateSumOfOddPlace(long creditCardNumber) {
-        char[] arrayNums = String.valueOf(creditCardNumber).toCharArray();
+        String nums = String.valueOf(creditCardNumber);
         int sum = 0;
-        for (int i = arrayNums.length - 1; i >= 0; i-=2) {
-            sum += Character.getNumericValue(arrayNums[i]);
+        for (int i = nums.length() - 1; i >= 0; i-=2) {
+            sum += Character.getNumericValue(nums.charAt(i));
         }
         return sum;
     }
