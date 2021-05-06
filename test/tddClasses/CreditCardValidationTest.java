@@ -11,7 +11,7 @@ public class CreditCardValidationTest {
     CreditCardValidation validate;
     @BeforeEach
     void setUp() {
-        creditCardNumber = 4388576018402626l;
+        creditCardNumber = 4388576018402626L;
         validate = new CreditCardValidation();
     }
 
@@ -19,6 +19,6 @@ public class CreditCardValidationTest {
     @Test
     void testThatCreditCardIsInvalid(){
         assertFalse(validate.isValid(creditCardNumber));
-        assertTrue(validate.isValid(371175520987141l));
+        assertTrue(validate.isValid(371175520987141L));
     }
 }
