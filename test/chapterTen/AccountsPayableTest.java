@@ -64,7 +64,7 @@ public class AccountsPayableTest {
         assertEquals(1000, payroll.calculatePayments(invoice2));
     }
     @Test
-    void testThatBaseSalaryOfBasePlusCommissionEmployeeIsIncreased(){
+    void testThatEarningOfBasePlusCommissionEmployeeIsIncreased(){
         Calendar dateOfBirth = new GregorianCalendar(1988, Calendar.SEPTEMBER, 30);
         Employee basePlusCommissionEmployee = new BasePlusCommissionEmployee("Joe", "Doe", "123456789", 100000,15, 50000, dateOfBirth);
         Payroll payroll = new Payroll(basePlusCommissionEmployee);
