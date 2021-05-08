@@ -7,7 +7,6 @@ public class FlightMovies {
         int secondMovie;
         for (int i = 0; i < moviesLength.length; i++) {
             firstMovie = moviesLength[i];
-
                  for (int j = i+1; j < moviesLength.length; j++) {
                      secondMovie = moviesLength[j];
                      if (firstMovie + secondMovie == flightLength) {
