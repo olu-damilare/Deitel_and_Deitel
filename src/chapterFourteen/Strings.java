@@ -24,7 +24,7 @@ public class Strings{
         return prefix.toString();
     }
 
-    public char[] splitStringToCharArray(String value){
+    public char[] splitPhoneNumberToCharArray(String value){
         StringBuilder suffix = new StringBuilder();
         int counter = 1;
         for (int i = value.length() - 4; i >= 0; i--) {
@@ -79,7 +79,9 @@ public class Strings{
     }
 
     public String tokenizePhoneNumber(String phoneNumber){
-        String[] digits = phoneNumber.split("\\) ");
+        if(!phoneNumber.matches("[(]\\d{3}[)]\\s\\d+-\\d+"))
+            throw new IllegalArgumentException("Invalid phone number format");
+        String[] digits = phoneNumber.split("[)]\\s");
         StringBuilder tempPhoneNumber = new StringBuilder(digits[0]);
         tempPhoneNumber.append(digits[1]);
         digits = tempPhoneNumber.toString().split("-");
@@ -113,10 +115,9 @@ public class Strings{
         sentence = sentence.toLowerCase();
         subSentence = subSentence.toLowerCase();
         int numberOfOccurrence = 0;
-        int length = subSentence.length();
         for (int i = 0; i < sentence.length(); i++) {
-            if(sentence.regionMatches(i, subSentence, 0, length))
-                numberOfOccurrence++;
+                if(sentence.startsWith(subSentence, i))
+                 numberOfOccurrence++;
         }
         return numberOfOccurrence;
     }
@@ -129,5 +130,21 @@ public class Strings{
             latinSentence.append(word.substring(1)).append(word.charAt(0)).append("ay").append(" ");
         }
         return latinSentence.toString();
+    }
+
+    public static void main(String[] args) {
+    String lastName = "0000";
+        System.out.println(lastName.matches("\\d{4}")); ;
+        Strings string = new Strings();
+        try {
+            System.out.println(string.tokenizePhoneNumber("(555) 555-5555"));
+        }catch(IllegalArgumentException ex){
+            System.out.println(ex.getMessage());
+        };
+
+        String email = "djolayemi@gmail.com";
+        System.out.println(email.matches("(\\w+|\\w+[.]\\w++)[@][a-z]+[.][a-z]+"));
+
+
     }
 }
