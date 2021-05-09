@@ -4,6 +4,9 @@ public class CryptographyTest {
     public static void main(String[] args) {
         Cryptography encrypt = new Cryptography();
 
-       System.out.println(encrypt.encode(2317));
+       System.out.println(encrypt.encrypt(9458));
+       System.out.println(encrypt.decrypt(2561));
     }
+
+
 }
