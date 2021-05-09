@@ -52,12 +52,16 @@ public class TextAnalysis {
         String[] words = string.toLowerCase().split("[,.;:\\s]+");
         int[] numsOfOccurrences = new int[words.length];
         for (int i = 0; i < words.length; i++) {
-            for (int j = 0; j < words.length; j++) {
-                if(words[i].equals(words[j]))
+            for (String word : words) {
+                if (words[i].equals(word))
                     ++numsOfOccurrences[i];
             }
         }
 
+        return getNumberOfOccurrenceOfWords(words, numsOfOccurrences);
+    }
+
+    private String getNumberOfOccurrenceOfWords(String[] words, int[] numsOfOccurrences) {
         StringBuilder table = new StringBuilder("Word\tOccurrence\n");
         for (int i = 0; i < words.length; i++) {
             table.append(words[i]).append("\t\t").append(numsOfOccurrences[i]).append("\n");
