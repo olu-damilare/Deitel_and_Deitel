@@ -79,8 +79,7 @@ public class Strings{
     }
 
     public String tokenizePhoneNumber(String phoneNumber){
-        if(!phoneNumber.matches("[(]\\d{3}[)]\\s\\d+-\\d+"))
-            throw new IllegalArgumentException("Invalid phone number format");
+        validatePhoneNumber(phoneNumber);
         String[] digits = phoneNumber.split("[)]\\s");
         StringBuilder tempPhoneNumber = new StringBuilder(digits[0]);
         tempPhoneNumber.append(digits[1]);
@@ -89,6 +88,11 @@ public class Strings{
         tempPhoneNumber.append(digits[0]).append(digits[1]);
 
         return tempPhoneNumber.substring(1);
+    }
+
+    private void validatePhoneNumber(String phoneNumber) {
+        if(!phoneNumber.matches("[(]\\d{3}[)]\\s\\d+-\\d+"))
+            throw new IllegalArgumentException("Invalid phone number format. e.g (123) 456-7890");
     }
 
     public String reverseSentence(String sentence){
@@ -132,19 +136,51 @@ public class Strings{
         return latinSentence.toString();
     }
 
+    public String tokenizeAndCompareStartingStrings(String string){
+        String[] words = string.toLowerCase().split("\\s+");
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {
+            if (word.startsWith("b"))
+                sb.append(word).append(" ");
+        }
+        return sb.toString();
+
+    }
+
+    public String tokenizeAndCompareEndingStrings(String string) {
+        String[] words = string.toLowerCase().split("\\s+");
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {
+            if (word.endsWith("ed"))
+                sb.append(word).append(" ");
+        }
+        return sb.toString();
+    }
+
+    public int indexOf(String string, char character){
+        int index = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if(character == string.charAt(i)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+    public int lastIndexOf(String string, char character){
+        int index = 0;
+        for (int i = string.length() - 1; i >= 0; i--) {
+            if(character == string.charAt(i)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
     public static void main(String[] args) {
-    String lastName = "0000";
-        System.out.println(lastName.matches("\\d{4}")); ;
         Strings string = new Strings();
-        try {
-            System.out.println(string.tokenizePhoneNumber("(555) 555-5555"));
-        }catch(IllegalArgumentException ex){
-            System.out.println(ex.getMessage());
-        };
-
-        String email = "djolayemi@gmail.com";
-        System.out.println(email.matches("(\\w+|\\w+[.]\\w++)[@][a-z]+[.][a-z]+"));
-
+        System.out.println(string.lastIndexOf("Malaika", 'a'));  ;
 
     }
 }
