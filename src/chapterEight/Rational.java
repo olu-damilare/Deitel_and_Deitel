@@ -1,5 +1,7 @@
 package chapterEight;
 
+import chapterSix.GreatestCommonDivisor;
+
 import java.text.NumberFormat;
 import java.util.Objects;
 
@@ -10,7 +12,7 @@ public class Rational {
     private final int denominator;
 
     public Rational(int numerator, int denominator) {
-        int greatestCommonDivisor = calculateGreatestCommonDivisor(numerator, denominator);
+        int greatestCommonDivisor = GreatestCommonDivisor.calculateGreatestCommonDivisor(numerator, denominator);
         if(denominator < 0)
             this.numerator = (-1 * numerator) / greatestCommonDivisor;
         else if(denominator > 0)
@@ -21,16 +23,6 @@ public class Rational {
         this.denominator = Math.abs(denominator) / greatestCommonDivisor;
     }
 
-    private int calculateGreatestCommonDivisor(int numerator, int denominator){
-        denominator = Math.abs(denominator);
-        numerator = Math.abs(numerator);
-        int greatestCommonDivisor = 1;
-        for (int i = 1; i <= numerator && i <= denominator; i++) {
-            if(numerator % i == 0 && denominator % i == 0)
-                greatestCommonDivisor = i;
-        }
-        return greatestCommonDivisor;
-    }
 
     public static Rational add(Rational firstRationalNumbers, Rational secondRationalNumbers) {
         int denominator = firstRationalNumbers.getDenominator() * secondRationalNumbers.getDenominator();
