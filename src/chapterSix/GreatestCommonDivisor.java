@@ -2,7 +2,7 @@ package chapterSix;
 
 public class GreatestCommonDivisor {
 
-    public int calculateGreatestCommonDivisor(int numerator, int denominator){
+    public static int calculateGreatestCommonDivisor(int numerator, int denominator){
         denominator = Math.abs(denominator);
         numerator = Math.abs(numerator);
         int greatestCommonDivisor = 1;
