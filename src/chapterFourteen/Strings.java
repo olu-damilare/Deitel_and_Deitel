@@ -177,10 +177,4 @@ public class Strings{
         }
         return index;
     }
-
-    public static void main(String[] args) {
-        Strings string = new Strings();
-        System.out.println(string.lastIndexOf("Malaika", 'a'));  ;
-
-    }
 }
