@@ -34,7 +34,8 @@ public class HugeInteger {
 
     public BigInteger getValue() {
         StringBuilder value = new StringBuilder();
-        for (int digit : digits) {
+        for (int i = 0, digitsLength = digits.length; i < digitsLength; i++) {
+            int digit = digits[i];
             value.append(digit);
         }
         return new BigInteger(value.toString());
