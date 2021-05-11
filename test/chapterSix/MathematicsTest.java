@@ -2,8 +2,6 @@ package chapterSix;
 
 import org.junit.jupiter.api.*;
 
-import java.security.SecureRandom;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -77,9 +75,9 @@ public class MathematicsTest {
     }
     @Test
     void testThatMethodConvertsDecimalToOctaldecimal(){
-        assertEquals(3400, Mathematics.decimalToOctaldecimal(1792));
-        assertEquals(10, Mathematics.decimalToOctaldecimal(8));
-        assertEquals(7, Mathematics.decimalToOctaldecimal(7));
+        assertEquals(3400, Mathematics.decimalToOctaDecimal(1792));
+        assertEquals(10, Mathematics.decimalToOctaDecimal(8));
+        assertEquals(7, Mathematics.decimalToOctaDecimal(7));
     }
 
 

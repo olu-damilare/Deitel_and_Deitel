@@ -114,7 +114,7 @@ public class Mathematics {
         return hexadecimal;
     }
 
-    public static int decimalToOctaldecimal(int decimalNumber) {
+    public static int decimalToOctaDecimal(int decimalNumber) {
         int octaldecimal = 0;
         int multiplier = 1;
         if(decimalNumber >= 0 && decimalNumber < 8)
