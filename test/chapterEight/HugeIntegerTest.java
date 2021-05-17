@@ -1,9 +1,7 @@
 package chapterEight;
 
 import org.junit.jupiter.api.Test;
-
 import java.math.BigInteger;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -12,9 +10,9 @@ public class HugeIntegerTest {
     @Test
     void testThatStringCanBeParsedToHugeInteger(){
         HugeInteger hugeInteger = new HugeInteger();
-        String number = "123456789";
+        String number = "1234567122453544556489";
         hugeInteger.parse(number);
-        assertEquals(BigInteger.valueOf(123456789), hugeInteger.getValue());
+        assertEquals(new BigInteger(number), hugeInteger.getValue());
     }
 
     @Test
