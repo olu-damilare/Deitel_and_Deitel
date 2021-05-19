@@ -1,4 +1,4 @@
-package Exercise;
+package chapterSeven;
 
 public class CrapsGameSimulator {
     static int[] gameWonCounters = new int[20];
