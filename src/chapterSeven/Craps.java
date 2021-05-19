@@ -16,16 +16,17 @@ public class Craps {
     }
     public void play(){
        int result = rollDice();
+
        if(status == CrapStatus.NEW) {
            points = result;
-           if ((result == 7 || result == 11)) {
+           if(result == 7 || result == 11) {
                status = CrapStatus.WON;
            } else if ((result == 2 || result == 3 || result == 12)) {
                status = CrapStatus.LOST;
            }
            status = CrapStatus.CONTINUE;
        } else {
-           if( points == result)
+           if(points == result)
                status = CrapStatus.WON;
            else if(result == 7)
                status = CrapStatus.LOST;
