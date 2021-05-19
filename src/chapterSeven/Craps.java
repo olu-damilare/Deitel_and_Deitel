@@ -1,4 +1,4 @@
-package Exercise;
+package chapterSeven;
 
 import java.security.SecureRandom;
 
