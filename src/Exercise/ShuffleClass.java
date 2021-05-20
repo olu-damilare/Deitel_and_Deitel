@@ -28,19 +28,8 @@ public class ShuffleClass {
     }
 
     public static void main(String[] args) {
-      int[][] scores = new int[3][9];
-//      int[][] scores = {{3,5,6,5}, {5,4}, {4,5,4,3,2,2,4,6,7,5,4,3}};
-        scores[0] = new int[4];
-        scores[1] = new int[10];
-        scores[2] = new int[2];
 
-
-        for (int i = 0; i < scores.length; i++) {
-            for (int j = 0; j < scores[i].length; j++) {
-                System.out.print(scores[i][j]);
-            }
-            System.out.println();
 
         }
-    }
+
 }
