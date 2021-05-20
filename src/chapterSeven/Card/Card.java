@@ -16,4 +16,5 @@ public class Card {
     public Suits getSuit() {
         return suit;
     }
+
 }
