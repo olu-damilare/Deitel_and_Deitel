@@ -1,4 +1,4 @@
-package chapterSeven;
+package Card;
 
 import chapterSeven.Card.Card;
 import org.junit.jupiter.api.Test;
