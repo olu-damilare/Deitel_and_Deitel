@@ -17,8 +17,8 @@ public class CrapsGameSimulator {
             System.out.printf("%d%15d%n",gameWonCounters[i], gameLostCounters[i]);
             sumOfWins += gameWonCounters[i];
         }
-        System.out.printf("%s%.2f", "The probability of winning a craps game is", simulator.calculateChancesOfWinning(sumOfWins,numberOfGamePlays));
-
+        System.out.printf("%n%s%.2f%n", "The probability of winning a craps game is ", simulator.calculateChancesOfWinning(sumOfWins,numberOfGamePlays));
+        System.out.println("Average length of the game is " + simulator.calculateAverageLengthOfGame());
     }
 
     public void playOneCrapsGame() {
@@ -40,6 +40,24 @@ public class CrapsGameSimulator {
 
     public double calculateChancesOfWinning(int numerator, int denominator){
         return (numerator * 1.0) / denominator;
+    }
+
+    public int calculateAverageLengthOfGame(){
+        int frequencyOfGameWon = 0;
+        int frequencyOfGameLost = 0;
+
+        int summationOfGameWon = 0;
+        int summationOfGameLost = 0;
+
+        for (int i = 0; i < gameWonCounters.length; i++) {
+            frequencyOfGameWon += gameWonCounters[i];
+            frequencyOfGameLost += gameLostCounters[i];
+
+            summationOfGameWon += (i + 1) * gameWonCounters[i];
+            summationOfGameLost += (i + 1) * gameLostCounters[i];
+        }
+
+        return ((summationOfGameWon / frequencyOfGameWon) + (summationOfGameLost / frequencyOfGameLost)) / 2;
     }
 
 
