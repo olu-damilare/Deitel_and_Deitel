@@ -94,6 +94,11 @@ public class CardTest {
         Card card = new Card(QUEEN, SPADE);
         assertEquals(card.getFace(), QUEEN);
     }
+    @Test
+    void testThatCardHasFaceAndSuit(){
+        Card card = new Card(QUEEN, SPADE);
+        assertEquals("QUEEN of SPADE", card.toString());
+    }
 
 
 
