@@ -45,7 +45,6 @@ public class CrapsGameSimulator {
     public int calculateAverageLengthOfGame(){
         int frequencyOfGameWon = 0;
         int frequencyOfGameLost = 0;
-
         int summationOfGameWon = 0;
         int summationOfGameLost = 0;
 
@@ -56,8 +55,10 @@ public class CrapsGameSimulator {
             summationOfGameWon += (i + 1) * gameWonCounters[i];
             summationOfGameLost += (i + 1) * gameLostCounters[i];
         }
+        int averageLengthOfGameWon = summationOfGameWon / frequencyOfGameWon;
+        int averageLengthOfGameLost = summationOfGameLost / frequencyOfGameLost;
 
-        return ((summationOfGameWon / frequencyOfGameWon) + (summationOfGameLost / frequencyOfGameLost)) / 2;
+        return (averageLengthOfGameWon + averageLengthOfGameLost) / 2;
     }
 
 
