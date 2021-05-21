@@ -1,5 +1,7 @@
 package chapterSeven.Card;
 
+import java.util.Objects;
+
 public class Card {
     private final Faces face;
     private final Suits suit;
@@ -21,4 +23,12 @@ public class Card {
     public String toString() {
         return face + " of " + suit;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return face == card.face || suit == card.suit;
+    }
+
 }
