@@ -1,11 +1,10 @@
 package Card;
 
-import chapterSeven.Card.Card;
 import org.junit.jupiter.api.Test;
 
 
-import static chapterSeven.Card.Faces.*;
-import static chapterSeven.Card.Suits.*;
+import static Card.Faces.*;
+import static Card.Suits.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameDealerTest {
