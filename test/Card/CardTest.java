@@ -1,10 +1,9 @@
 package Card;
 
-import chapterSeven.Card.Card;
 import org.junit.jupiter.api.Test;
 
-import static chapterSeven.Card.Faces.*;
-import static chapterSeven.Card.Suits.*;
+import static Card.Faces.*;
+import static Card.Suits.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardTest {
@@ -12,22 +11,22 @@ public class CardTest {
     @Test
     void testThatSpadeCardCanBeCreated(){
         Card card = new Card(ACE, SPADE);
-        assertEquals(card.getSuit(),SPADE);
+        assertEquals(card.getSuit(), SPADE);
     }
     @Test
     void testThatDiamondCardCanBeCreated(){
         Card card = new Card(ACE, DIAMOND);
-        assertEquals(card.getSuit(),DIAMOND);
+        assertEquals(card.getSuit(), DIAMOND);
     }
     @Test
     void testThatClubCardCanBeCreated(){
         Card card = new Card(ACE, CLUB);
-        assertEquals(card.getSuit(),CLUB);
+        assertEquals(card.getSuit(), CLUB);
     }
     @Test
     void testThatHeartsCardCanBeCreated(){
         Card card = new Card(ACE, HEARTS);
-        assertEquals(card.getSuit(),HEARTS);
+        assertEquals(card.getSuit(), HEARTS);
     }
     @Test
     void testThatAceCardCanBeCreated(){
@@ -98,6 +97,22 @@ public class CardTest {
     void testThatCardHasFaceAndSuit(){
         Card card = new Card(QUEEN, SPADE);
         assertEquals("QUEEN of SPADE", card.toString());
+    }
+    @Test
+    void testThatTwoCardsWithMatchingSuitsAreEqual(){
+        Card card = new Card(QUEEN, SPADE);
+        assertEquals(SPADE, card.getSuit());
+        Card secondCard = new Card(JACK, SPADE);
+        assertEquals(SPADE, secondCard.getSuit());
+        assertEquals(card, secondCard);
+    }
+    @Test
+    void testThatTwoCardsWithMatchingFacesAreEqual(){
+        Card card = new Card(QUEEN, CLUB);
+        assertEquals(QUEEN, card.getFace());
+        Card secondCard = new Card(QUEEN, SPADE);
+        assertEquals(QUEEN, secondCard.getFace());
+        assertEquals(card, secondCard);
     }
 
 
