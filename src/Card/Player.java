@@ -1,8 +1,5 @@
 package Card;
 
-import chapterSeven.Card.Card;
-import tddClasses.Calculator;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +23,24 @@ public class Player {
         return name;
     }
 
-    public Card playCard(int cardPosition) {
+    public void playCard(int cardPosition, DeckOfCards deck) {
         if(hasNoCard())throw new StackUnderflowException("Player has no cards");
 
+        Faces playerCardFace = cards.get(cardPosition - 1).getFace();
+        Faces deckCardFace = deck.peek().getFace();
+        Suits playerCardSuit = cards.get(cardPosition - 1).getSuit();
+        Suits deckCardSuit = deck.peek().getSuit();
+
+        validateCard(playerCardFace, deckCardFace, playerCardSuit, deckCardSuit);
+
         Card playedCard = cards.get(cardPosition - 1);
+        deck.push(playedCard);
         cards.remove(cardPosition - 1);
-        return playedCard;
+    }
+
+    private void validateCard(Faces playerCardFace, Faces deckCardFace, Suits playerCardSuit, Suits deckCardSuit) {
+        if(!(playerCardFace.equals(deckCardFace) || playerCardSuit.equals(deckCardSuit)))
+            throw new InvalidCardException("Card face or suit does not match the deck card");
     }
 
     public boolean hasNoCard() {
