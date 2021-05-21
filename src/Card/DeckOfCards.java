@@ -1,7 +1,5 @@
 package Card;
 
-import chapterSeven.Card.Card;
-
 import java.util.Random;
 
 public class DeckOfCards {
