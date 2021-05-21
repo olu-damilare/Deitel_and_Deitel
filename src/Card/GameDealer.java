@@ -1,7 +1,5 @@
 package Card;
 
-import chapterSeven.Card.Card;
-
 public class GameDealer {
     public Card serveCard(DeckOfCards deck) {
         return deck.pop();
