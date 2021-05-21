@@ -4,7 +4,9 @@ import Exercise.Kata;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class KataTest {
     private Kata kata;
@@ -101,6 +103,31 @@ public class KataTest {
     void testForMinimumSumOfAnArrayLessByOneIndex(){
         int[] array = {1,2,3,4,5};
         assertEquals(10, Kata.getMinimumSumInArray(array));
+    }
+    @Test
+    void testThatArrayOfNumbersCanBeShuffled(){
+        int[] array = {1,2,3,4,5,6,7,8,9,10};
+        assertEquals(10, array[9]);
+        kata.shuffle(array);
+        assertFalse(Arrays.equals(array, new int[]{1,2,3,4,5,6,7,8,9,10}));
+    }
+    @Test
+    void testThatShuffledArrayCanBeSortedInAscendingOrder(){
+        int[] array = {12,32,13,64,50,62,17,38,39,19};
+        assertEquals(19, array[9]);
+        kata.shuffle(array);
+        assertFalse(Arrays.equals(array, new int[]{12,32,13,64,50,62,17,38,39,19}));
+        kata.sort(array, true);
+        assertTrue(Arrays.equals(array, new int[]{12, 13, 17, 19, 32, 38, 39, 50, 62, 64}));
+    }
+    @Test
+    void testThatShuffledArrayCanBeSortedInDescendingOrder(){
+        int[] array = {12,32,13,64,50,62,17,38,39,19};
+        assertEquals(19, array[9]);
+        kata.shuffle(array);
+        assertFalse(Arrays.equals(array, new int[]{12,32,13,64,50,62,17,38,39,19}));
+        kata.sort(array, false);
+        assertTrue(Arrays.equals(array, new int[]{64, 62, 50, 39, 38, 32, 19, 17, 13, 12}));
     }
 
 }
