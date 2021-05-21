@@ -1,6 +1,5 @@
-package chapterSeven.Card;
+package Card;
 
-import java.util.Objects;
 
 public class Card {
     private final Faces face;
