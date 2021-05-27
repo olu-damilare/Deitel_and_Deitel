@@ -130,24 +130,23 @@ public class Kata {
             factors += number;
         } else factors = "invalid input";
 
-
         return factors;
 
     }
 
-
     public void shuffle(int[] array) {
-        int secondIndex = array.length - 1;
-        int counter = 0;
         Random randomizer = new Random();
+        int firstIndex;
+        int secondIndex;
+        int tempValueHolder;
 
-        while (secondIndex > counter) {
-            int firstIndex = randomizer.nextInt(array.length);
-            int tempNum = array[firstIndex];
+        for (int i = 0; i < array.length; i++) {
+            firstIndex = randomizer.nextInt(array.length);
+            secondIndex = randomizer.nextInt(array.length);
+
+            tempValueHolder = array[firstIndex];
             array[firstIndex] = array[secondIndex];
-            array[secondIndex] = tempNum;
-            secondIndex--;
-            counter++;
+            array[secondIndex] = tempValueHolder;
         }
     }
 
