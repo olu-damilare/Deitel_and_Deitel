@@ -1,5 +1,7 @@
 package tddClasses;
 
+import Exercise.RandomPrimeNumberWithinAGivenRange;
+
 public class RandomPrimeNumberMain {
     public static void main(String[] args) {
         RandomPrimeNumberWithinAGivenRange random = new RandomPrimeNumberWithinAGivenRange();

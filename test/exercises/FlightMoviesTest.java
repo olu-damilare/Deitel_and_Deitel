@@ -1,5 +1,6 @@
 package tddClasses;
 
+import Exercise.FlightMovies;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
