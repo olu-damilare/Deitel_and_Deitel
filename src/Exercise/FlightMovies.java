@@ -1,4 +1,4 @@
-package tddClasses;
+package Exercise;
 
 public class FlightMovies {
     public static boolean moviesLengthSumEqualsFlightLength(int flightLength, int[] moviesLength) {
