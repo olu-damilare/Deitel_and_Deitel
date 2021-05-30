@@ -1,4 +1,4 @@
-package tddClasses;
+package Exercise;
 
 public class Example {
     private static int number3;
