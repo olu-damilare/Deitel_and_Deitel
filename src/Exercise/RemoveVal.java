@@ -1,4 +1,4 @@
-package tddClasses;
+package Exercise;
 
 public class RemoveVal {
     public static int remove(int[] numbers, int number) {
