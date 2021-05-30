@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import Exercise.MyAccount;
 import org.junit.jupiter.api.BeforeEach;
