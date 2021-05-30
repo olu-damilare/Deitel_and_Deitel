@@ -1,4 +1,4 @@
-package tddClasses;
+package Exercise;
 
 import java.security.SecureRandom;
 
