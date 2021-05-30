@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import Exercise.RemoveVal;
 import org.junit.jupiter.api.Test;
