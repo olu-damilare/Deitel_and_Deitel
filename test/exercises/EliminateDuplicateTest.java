@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import Exercise.DuplicateElements;
 import org.junit.jupiter.api.Test;
