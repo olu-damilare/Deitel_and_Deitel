@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import Exercise.FlightMovies;
 import org.junit.jupiter.api.Test;

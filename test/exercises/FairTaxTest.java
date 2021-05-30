@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import chapterFive.FairTax;
 import org.junit.jupiter.api.AfterEach;
