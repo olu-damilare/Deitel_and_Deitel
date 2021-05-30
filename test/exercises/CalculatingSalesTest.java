@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import chapterFive.CalculatingSales;
 import org.junit.jupiter.api.BeforeEach;
