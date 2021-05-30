@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import Exercise.Position;
 import org.junit.jupiter.api.Test;
