@@ -1,39 +1,44 @@
 package Exercise;
 
-
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class FileHandling {
-    public static void main(String[] args) throws FileNotFoundException {
-        java.io.File file = new java.io.File("app.java");
-            System.out.println(file.exists());
-            
-            if(!file.exists()) {
-                PrintWriter output = new PrintWriter(file);
-                output.print("Hello");
-                output.println(4);
-               // System.out.println(file.exists());
-                output.close();
-            }
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a file directory");
+        String directory = scanner.nextLine();
+        Path path = Paths.get(directory);
 
-            try(
-                PrintWriter output = new PrintWriter(file);
-            ){
-                output.print("Hello");
-                output.println(4);
-               // System.out.println(file.exists());
+        if(Files.exists(path)){
+            System.out.println(path.getFileName() + " exists");
+            if(Files.isDirectory(path)){
+                System.out.println(path + " is a directory");
             }
-        //System.out.println(file.exists());
-            Scanner scanner = new Scanner(file);
-            while(scanner.hasNext()){
-                String first = scanner.next();
-                int second = scanner.nextInt();
-                String third = scanner.next();
-                int fourth = scanner.nextInt();
-                System.out.printf("%s%n%d%s%n%d", first, second, third, fourth);
+            else{
+                System.out.println(path + " is not a directory");
             }
+            System.out.println("last modified: "+ Files.getLastModifiedTime(path));
+            System.out.println("Path: "+ path);
+            System.out.println("Absolute path: "+ path.toAbsolutePath());
+
+            if(Files.isDirectory(path)){
+                System.out.println("Directory contents: ");
+                DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path);
+
+                for(Path p: directoryStream)
+                    System.out.println(p);
+            }
+        }
+        else{
+            System.out.println(path + " does not exist");
+        }
+
+
 
     }
 }
