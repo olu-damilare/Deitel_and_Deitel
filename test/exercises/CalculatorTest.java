@@ -1,4 +1,4 @@
-package tddClasses;
+package exercises;
 
 import Exercise.Calculator;
 import org.junit.jupiter.api.BeforeEach;
