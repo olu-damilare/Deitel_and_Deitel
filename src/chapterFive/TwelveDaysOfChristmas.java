@@ -36,20 +36,7 @@ public class TwelveDaysOfChristmas {
 
             String statement = "On the " + day + " day of Christmas, my true love sent to me; ";
 
-            switch (dayCounter) {
-                case 1 -> System.out.println(statement);
-                case 2 -> System.out.println(statement);
-                case 3 -> System.out.println(statement);
-                case 4 -> System.out.println(statement);
-                case 5 -> System.out.println(statement);
-                case 6 -> System.out.println(statement);
-                case 7 -> System.out.println(statement);
-                case 8 -> System.out.println(statement);
-                case 9 -> System.out.println(statement);
-                case 10 -> System.out.println(statement);
-                case 11 -> System.out.println(statement);
-                case 12 -> System.out.println(statement);
-            }
+            System.out.println(statement);
 
             switch (dayCounter) {
                 case 12: System.out.println("Twelve drummers drumming,");
