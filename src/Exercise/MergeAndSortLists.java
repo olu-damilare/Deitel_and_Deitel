@@ -1,8 +1,5 @@
 package Exercise;
 
-
-import java.util.Arrays;
-
 public class MergeAndSortLists {
 
 
