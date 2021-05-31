@@ -1,6 +1,5 @@
 package turtleGraphics;
 
-import java.util.Objects;
 
 public class Position {
     private int X_coordinate;
