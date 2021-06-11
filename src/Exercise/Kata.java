@@ -189,4 +189,20 @@ public class Kata {
                 selectedValue = array[i + 1];
         }
     }
+
+    public String ticTacToe(){
+        char[][] values = {{'X', 'O', 'X'}, {'O', 'O', 'X'}, {'O', 'X', 'O'}};
+        String output = "";
+        for (char[] value : values) {
+            for (char c : value) {
+                output += c + " ";
+            }
+            output += '\n';
+        }
+        return output;
+    }
+
+
+
+
 }
