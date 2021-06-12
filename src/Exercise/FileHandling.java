@@ -12,6 +12,7 @@ public class FileHandling {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a file directory");
         String directory = scanner.nextLine();
+
         Path path = Paths.get(directory);
 
         if(Files.exists(path)){
