@@ -26,6 +26,11 @@ public class Account{
 		return name;
 	}
 
-
-
+	@Override
+	public String toString() {
+		return "Account{" +
+				"name='" + name + '\'' +
+				", balance=" + balance +
+				'}';
+	}
 }
