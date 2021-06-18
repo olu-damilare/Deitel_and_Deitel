@@ -36,8 +36,7 @@ public class AccountQueue {
     public Account dequeue() {
         if(isEmpty())
             throw new QueueUnderFlowException("Cannot dequeue an empty queue");
-        enqueueCounter--;
-        return accounts[dequeueCounter++];
+         return accounts[dequeueCounter++];
     }
 
     public boolean isEmpty() {

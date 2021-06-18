@@ -1,11 +1,12 @@
 package queue;
 
 import chapterTwo.Account;
-import exercises.AccountQueue;
+import Exercise.queue.AccountQueue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import exercises.exceptions.QueueOverFlowException;
-import exercises.exceptions.QueueUnderFlowException;
+import Exercise.queue.exceptions.QueueOverFlowException;
+import Exercise.queue.exceptions.QueueUnderFlowException;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -97,14 +98,18 @@ public class QueueTest {
     }
 
     @Test
-    void test(){
+    void testToRepeatedlyEnqueueAndDequeueRepeatedly(){
         for (int i = 0; i < queue.getSize(); i++) {
             queue.enqueue(account);
         }
+        assertEquals(5, queue.getNumberOfAccountsInQueue());
         queue.dequeue();
+        assertEquals(4, queue.getNumberOfAccountsInQueue());
         queue.enqueue(account);
+        assertEquals(5, queue.getNumberOfAccountsInQueue());
 
     }
+
 
 
 }
