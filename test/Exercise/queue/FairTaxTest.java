@@ -1,4 +1,4 @@
-package exercises;
+package Exercise.queue;
 
 import chapterFive.FairTax;
 import org.junit.jupiter.api.AfterEach;
