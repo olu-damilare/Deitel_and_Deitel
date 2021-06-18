@@ -1,4 +1,4 @@
-package exercises;
+package Exercise.queue;
 
 import Exercise.RandomPrimeNumberWithinAGivenRange;
 import org.junit.jupiter.api.BeforeEach;
