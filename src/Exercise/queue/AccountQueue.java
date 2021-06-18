@@ -1,8 +1,8 @@
-package exercises;
+package Exercise.queue;
 
+import Exercise.queue.exceptions.QueueOverFlowException;
 import chapterTwo.Account;
-import exercises.exceptions.QueueOverFlowException;
-import exercises.exceptions.QueueUnderFlowException;
+import Exercise.queue.exceptions.QueueUnderFlowException;
 
 public class AccountQueue {
     private Account[] accounts;
@@ -14,33 +14,38 @@ public class AccountQueue {
     }
 
     public void enqueue(Account account) {
-        if(isFull()){
+        if(isFull())
             throw new QueueOverFlowException("Cannot enqueue a full queue");
-        }else if(isEmpty()){
-            enqueueCounter = 0;
-            dequeueCounter = 0;
-        }
         accounts[enqueueCounter++] = account;
-    }
+        }
+
 
     public Account peek() {
         if(isEmpty())
             throw new QueueUnderFlowException("Cannot peek an empty queue");
-        return accounts[dequeueCounter];
+        return accounts[0];
     }
 
     public int getNumberOfAccountsInQueue() {
-        return enqueueCounter - dequeueCounter;
+        return enqueueCounter;
     }
 
     public Account dequeue() {
         if(isEmpty())
             throw new QueueUnderFlowException("Cannot dequeue an empty queue");
-         return accounts[dequeueCounter++];
+        Account dequeuedAccount = accounts[0];
+        for (int i = 0; i < accounts.length; i++) {
+                  if(i + 1 != accounts.length && accounts[i + 1] != null)
+                      accounts[i] = accounts[i + 1];
+                  else if(accounts[i] == null)
+                      accounts[i - 1] = null;
+        }
+        enqueueCounter--;
+         return dequeuedAccount;
     }
 
     public boolean isEmpty() {
-        return enqueueCounter - dequeueCounter == 0;
+        return enqueueCounter == 0;
     }
 
     public int getSize() {
@@ -48,6 +53,6 @@ public class AccountQueue {
     }
 
     public boolean isFull(){
-        return enqueueCounter - dequeueCounter == 5;
+        return enqueueCounter  == getSize();
     }
 }

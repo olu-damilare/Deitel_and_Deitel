@@ -1,4 +1,4 @@
-package exercises.exceptions;
+package Exercise.queue.exceptions;
 
 public class QueueException extends RuntimeException{
 
