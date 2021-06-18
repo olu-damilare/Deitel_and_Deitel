@@ -1,4 +1,4 @@
-package exercises;
+package Exercise.queue;
 
 import Exercise.Kata;
 import org.junit.jupiter.api.BeforeEach;
