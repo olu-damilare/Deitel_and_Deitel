@@ -1,4 +1,4 @@
-package exercises;
+package Exercise.queue;
 
 import chapterFive.BarsOfAsterisks;
 import org.junit.jupiter.api.Test;
