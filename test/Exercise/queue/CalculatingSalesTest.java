@@ -1,4 +1,4 @@
-package exercises;
+package Exercise.queue;
 
 import chapterFive.CalculatingSales;
 import org.junit.jupiter.api.BeforeEach;
