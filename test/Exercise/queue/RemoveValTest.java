@@ -1,4 +1,4 @@
-package exercises;
+package Exercise.queue;
 
 import Exercise.RemoveVal;
 import org.junit.jupiter.api.Test;
