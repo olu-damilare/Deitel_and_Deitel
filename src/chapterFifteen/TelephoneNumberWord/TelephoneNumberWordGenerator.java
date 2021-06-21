@@ -1,4 +1,4 @@
-package chapterFifteen;
+package chapterFifteen.TelephoneNumberWord;
 
 import java.io.File;
 import java.io.FileNotFoundException;
