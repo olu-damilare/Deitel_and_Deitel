@@ -1,0 +1,36 @@
+Java LinkedList class uses a doubly linked list to store the elements. It provides a linked-list data structure. It inherits the AbstractList class and implements List and Deque interfaces.
+
+The important points about Java LinkedList are:
+
+Java LinkedList class can contain duplicate elements.
+Java LinkedList class maintains insertion order.
+Java LinkedList class is non synchronized.
+In Java LinkedList class, manipulation is fast because no shifting needs to occur.
+Java LinkedList class can be used as a list, stack or queue.
+Hierarchy of LinkedList class
+As shown in the above diagram, Java LinkedList class extends AbstractSequentialList class and implements List and Deque interfaces.
+
+Doubly Linked List
+In the case of a doubly linked list, we can add or remove elements from both sides.
+
+java LinkedList class using doubly linked list
+LinkedList class declaration
+Let's see the declaration for java.util.LinkedList class.
+
+
+public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, Serializable
+Constructors of Java LinkedList
+Constructor	Description
+LinkedList()	It is used to construct an empty list.
+LinkedList(Collection<? extends E> c)	It is used to construct a list containing the elements of the specified collection, in the order, they are returned by the collection's iterator.
+Methods of Java LinkedList
+Method	Description
+boolean add(E e)	It is used to append the specified element to the end of a list.
+void add(int index, E element)	It is used to insert the specified element at the specified position index in a list.
+boolean addAll(Collection<? extends E> c)	It is used to append all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator.
+boolean addAll(Collection<? extends E> c)	It is used to append all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection's iterator.
+boolean addAll(int index, Collection<? extends E> c)	It is used to append all the elements in the specified collection, starting at the specified position of the list.
+void addFirst(E e)	It is used to insert the given element at the beginning of a list.
+void addLast(E e)	It is used to append the given element to the end of a list.
+void clear()	It is used to remove all the elements from a list.
+Object clone()	It is used to return a shallow copy of an ArrayList.
