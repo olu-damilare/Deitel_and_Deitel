@@ -5,12 +5,10 @@ import chapterSix.Mathematics;
 import java.util.*;
 
 public class LinkedListOperation {
-    LinkedList<Integer> numbers = new LinkedList<>();
 
-    public LinkedList<Integer> insertValue(int value){
+    public void insertValue( LinkedList<Integer> numbers, int value){
         numbers.add(value);
         Collections.sort(numbers);
-        return numbers;
     }
 
     public int calculateSum(List<Integer> list){
