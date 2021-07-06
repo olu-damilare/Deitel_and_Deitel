@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -129,5 +130,38 @@ public class KataTest {
         kata.sort(array, false);
         assertTrue(Arrays.equals(array, new int[]{64, 62, 50, 39, 38, 32, 19, 17, 13, 12}));
     }
+
+    @Test
+    void testToCalculateArithmeticProgression(){
+        assertEquals(20, kata.calculateArithmeticProgression(5, 10, 15));
+    }
+
+    @Test
+    void testToCalculateArithmeticProgressionOfTheNthTerm(){
+        assertEquals(713, kata.calculateArithmeticProgression(6, 13, 20, 102));
+    }
+
+    @Test
+    void testToCalculateGeometricProgressionOfTheNthTerm(){
+        assertEquals(2187, kata.calculateGeometricProgression(1, 3, 9, 8));
+    }
+
+   @Test
+    void testToCalculateTheNthSeriesOfArithmeticProgression(){
+        int[] expectedSeries = {2, 4, 6, 8, 10, 12, 14};
+        int[] obtainedSeries = kata.calculateArithmeticProgressionSeries(2, 4, 6, 4);
+       assertTrue(Arrays.equals(expectedSeries, obtainedSeries));
+   }
+
+   @Test
+    void testToCalculateTheNthSequenceInASequence(){
+       int[] expectedSeries = {2, 4, 6, 8, 10, 4, 6, 8, 10, 12, 6, 8, 10, 12, 14};
+       int[] obtainedSeries = kata.calculateArithmeticProgressionSubSeries(2, 4, 6, 4, 1);
+       assertTrue(Arrays.equals(expectedSeries, obtainedSeries));
+
+   }
+
+
+
 
 }
