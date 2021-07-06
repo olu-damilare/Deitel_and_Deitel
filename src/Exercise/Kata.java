@@ -1,5 +1,6 @@
 package Exercise;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Kata {
@@ -202,7 +203,79 @@ public class Kata {
         return output;
     }
 
+    public int calculateArithmeticProgression(int firstNumber, int secondNumber, int thirdNumber, int nthTerm){
+        int nextNumber = 0;
+        if((Math.abs(thirdNumber - secondNumber)) == (Math.abs(secondNumber - firstNumber))){
+            int commonDifference = thirdNumber - secondNumber;
+            nextNumber = firstNumber + (nthTerm - 1) * commonDifference;
+
+        }
+        return nextNumber;
+
+    }
+
+    public int calculateArithmeticProgression(int firstNumber, int secondNumber, int thirdNumber){
+        int nextNumber = 0;
+        if((Math.abs(thirdNumber - secondNumber)) == (Math.abs(secondNumber - firstNumber))){
+            int commonDifference = thirdNumber - secondNumber;
+            nextNumber = firstNumber + 3 * commonDifference;
+
+        }
+        return nextNumber;
+
+    }
 
 
+    public double calculateGeometricProgression(int firstNumber, int secondNumber, int thirdNumber, int nthTerm) {
+        int commonRatio = 0;
+        if ((secondNumber / firstNumber) == (thirdNumber / secondNumber)) {
+            commonRatio = thirdNumber / secondNumber;
+            double nthValue = firstNumber * Math.pow(commonRatio, (nthTerm - 1));
+            return nthValue;
+        }
+        return commonRatio;
+    }
 
+    public int[] calculateArithmeticProgressionSeries(int firstNumber, int secondNumber, int thirdNumber, int numberOfNextSeries) {
+        int[] newSeries = new int[3 + numberOfNextSeries];
+        newSeries[0] = firstNumber;
+        newSeries[1] = secondNumber;
+        newSeries[2] = thirdNumber;
+
+        if(numberOfNextSeries > 0) {
+            for (int i = 3; i < numberOfNextSeries + 3; i++) {
+                newSeries[i] = calculateArithmeticProgression(firstNumber, secondNumber, thirdNumber, i + 1);
+
+            }
+        }
+        return newSeries;
+    }
+
+    public int[] calculateArithmeticProgressionSubSeries(int firstNumber, int secondNumber, int thirdNumber, int numberOfSubSeries, int numberOfNextMainSeries) {
+        int[] temp;
+        ArrayList<Integer> tempList = new ArrayList<>();
+
+        if ((thirdNumber - secondNumber) == (secondNumber - firstNumber)) {
+            int commonDifference = thirdNumber - secondNumber;
+            for (int i = 0; i < 2 + numberOfNextMainSeries; i++) {
+                temp = calculateArithmeticProgressionSeries(firstNumber, secondNumber, thirdNumber, numberOfSubSeries - 2);
+                firstNumber += commonDifference;
+                secondNumber += commonDifference;
+                thirdNumber += commonDifference;
+
+                for (int k : temp) {
+                    tempList.add(k);
+                }
+            }
+
+        }
+        int[] output = new int[tempList.size()];
+
+        for (int i = 0; i < tempList.size(); i++) {
+            output[i] = tempList.get(i);
+        }
+
+
+        return output;
+    }
 }
