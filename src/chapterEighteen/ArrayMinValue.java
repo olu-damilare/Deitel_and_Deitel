@@ -2,11 +2,10 @@ package chapterEighteen;
 
 public class ArrayMinValue {
 
-    public int findRecursiveMinimum(int[] nums) {
-        if(nums.length == 1)
+    public int findRecursiveMinimum(int[] nums, int n) {
+        if(n == 1)
             return nums[0];
-        if(nums.length == 2)
-            return Math.min(nums[0], nums[1]);
-        return findRecursiveMinimum(nums.)
+
+        return Math.min(nums[n - 1], findRecursiveMinimum(nums, n - 1));
     }
 }
