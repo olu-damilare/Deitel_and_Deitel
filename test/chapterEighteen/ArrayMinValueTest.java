@@ -10,6 +10,6 @@ public class ArrayMinValueTest {
     void testToFindTheMinimumNumberInArray(){
         ArrayMinValue determinant = new ArrayMinValue();
         int[] nums = {4,2,5,6,4,3,1};
-        assertEquals(1, determinant.findRecursiveMinimum(nums));
+        assertEquals(1, determinant.findRecursiveMinimum(nums, nums.length));
     }
 }
