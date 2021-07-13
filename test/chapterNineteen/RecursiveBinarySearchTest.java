@@ -13,6 +13,6 @@ public class RecursiveBinarySearchTest {
         int[] nums = {30,15,32,26,25,17,22,12};
         Arrays.sort(nums);
         BinarySearch search = new BinarySearch();
-        assertEquals(0, search.search(nums, 12, 0, nums.length - 1));
+        assertEquals(7, search.search(nums, 32, 0, nums.length - 1));
     }
 }
