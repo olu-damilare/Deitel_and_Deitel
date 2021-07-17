@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GenericMethodTest {
 
@@ -49,4 +48,6 @@ public class GenericMethodTest {
         Integer[] intArray = {1, 2, 3, 4, 5};
         assertThrows(InvalidSubscriptException.class, ()-> GenericMethod.subArray(intArray, 3, 2));
     }
+
+
 }
