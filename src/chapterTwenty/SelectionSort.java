@@ -1,11 +1,9 @@
 package chapterTwenty;
 
 
-import java.util.Comparator;
-
 public class SelectionSort {
 
-    public static <T extends Comparable> void sort(T[] inputArray) {
+    public static <T extends Comparable<T>> void sort(T[] inputArray) {
         for (int i = 0; i < inputArray.length - 1; i++) {
             int smallest = i;
 
