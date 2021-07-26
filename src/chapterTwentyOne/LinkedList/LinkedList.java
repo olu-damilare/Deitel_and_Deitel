@@ -24,6 +24,9 @@ public class LinkedList<T> {
     public void addFromBack(T data) {
         if (head == null) {
             head = tail =  new Node<T>(data);
+        }else{
+            tail = new Node<T>(null, data, head);
+
         }
     }
 
