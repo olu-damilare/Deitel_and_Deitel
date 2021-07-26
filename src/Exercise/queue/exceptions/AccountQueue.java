@@ -1,8 +1,6 @@
-package Exercise.queue;
+package Exercise.queue.exceptions;
 
-import Exercise.queue.exceptions.QueueOverFlowException;
 import chapterTwo.Account;
-import Exercise.queue.exceptions.QueueUnderFlowException;
 
 public class AccountQueue {
     private Account[] accounts;
