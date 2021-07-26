@@ -1,4 +1,4 @@
-package Exercise.queue;
+package Exercise;
 
 import Exercise.Calculator;
 import org.junit.jupiter.api.BeforeEach;
