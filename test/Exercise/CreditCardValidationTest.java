@@ -1,4 +1,4 @@
-package Exercise.queue;
+package Exercise;
 
 import Exercise.CreditCardValidation;
 import org.junit.jupiter.api.BeforeEach;
