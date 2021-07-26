@@ -1,4 +1,4 @@
-package Exercise.queue;
+package Exercise;
 
 import Exercise.Array;
 import org.junit.jupiter.api.Test;
