@@ -1,7 +1,7 @@
 package queue;
 
 import chapterTwo.Account;
-import Exercise.queue.AccountQueue;
+import Exercise.queue.exceptions.AccountQueue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import Exercise.queue.exceptions.QueueOverFlowException;
