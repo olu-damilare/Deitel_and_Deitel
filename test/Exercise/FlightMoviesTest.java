@@ -1,4 +1,4 @@
-package Exercise.queue;
+package Exercise;
 
 import Exercise.FlightMovies;
 import org.junit.jupiter.api.Test;
