@@ -1,4 +1,4 @@
-package Exercise.queue;
+package Exercise;
 
 import chapterFive.GlobalWarmingQuiz;
 import org.junit.jupiter.api.AfterEach;
