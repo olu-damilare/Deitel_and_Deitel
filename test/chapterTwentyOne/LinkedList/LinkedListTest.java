@@ -35,4 +35,31 @@ public class LinkedListTest {
         assertEquals(5, list.getHead().data);
         assertEquals(10, list.getHead().nextNode.data);
     }
+
+    @Test
+    void testToRemoveDataFromTheFrontOfAList(){
+        LinkedList<Integer> list = new LinkedList();
+        assertTrue(list.isEmpty());
+
+        list.addFromFront(10);
+        assertFalse(list.isEmpty());
+
+        Integer data = list.removeFromFront();
+        assertEquals(10, data);
+        assertTrue(list.isEmpty());
+
+    }
+
+    @Test
+    void testToRemoveDataFromTheEndOfAList(){
+        LinkedList<Integer> list = new LinkedList();
+        assertTrue(list.isEmpty());
+
+        list.addFromFront(10);
+        assertFalse(list.isEmpty());
+
+        Integer data = list.removeFromEnd();
+        assertEquals(10, data);
+        assertTrue(list.isEmpty());
+    }
 }
