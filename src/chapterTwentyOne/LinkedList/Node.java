@@ -17,8 +17,8 @@ public class Node<T> {
 
     @Override
     public String toString() {
-        return  "previousNode = " + previousNode +
-                "\nnextNode = " + nextNode +
+        return  "previousNode = " + previousNode.data +
+                "\nnextNode = " + nextNode.data +
                 "\ndata = " + data;
     }
 }
