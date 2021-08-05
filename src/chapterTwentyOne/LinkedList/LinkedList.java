@@ -7,17 +7,18 @@ public class LinkedList<T>{
     private Node<T> head;
     private Node<T> tail;
     private Node<T> pointer;
+    private boolean hasMadeFirstIteration;
 
     public Node<T> addFromFront(T data) {
         if (isEmpty()) {
             head = tail =  new Node<T>(data);
             head.previousNode = head.nextNode = tail;
-            pointer = tail;
         }else{
             head = new Node<T>(tail, data, head);
             tail.nextNode = head;
             head.nextNode.previousNode = head;
         }
+        pointer = head;
         return head;
     }
 
@@ -29,7 +30,7 @@ public class LinkedList<T>{
         if (isEmpty()) {
             head = tail =  new Node<T>(data);
             head.nextNode = head.previousNode = tail;
-            pointer = tail;
+            pointer = head;
         }else{
             tail = tail.nextNode = new Node<T>(tail, data, head);
             head.previousNode = tail;
@@ -129,42 +130,31 @@ public class LinkedList<T>{
     @Override
     public String toString() {
         if(isEmpty()) return "[]";
-        String list = "[";
+        StringBuilder list = new StringBuilder("[");
 
         Node<T> temp = head;
         do {
-            list += temp.data;
-
+            list.append(temp.data);
                 if (temp != tail){
-                    list += ", ";
+                    list.append(", ");
                 }
-
             temp = temp.nextNode;
         } while (temp != head);
 
-        list += "]";
-        return list;
+        list.append("]");
+        return list.toString();
     }
 
     public boolean hasNext(){
-        return pointer != tail;
+        return !isEmpty() && !hasMadeFirstIteration;
     }
 
     public T next(){
         T temp = pointer.data;
         pointer = pointer.nextNode;
+        if(pointer == head) hasMadeFirstIteration = true;
+
         return temp;
     }
 
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<Integer>();
-        list.addFromFront(10);
-        list.addFromFront(2);
-        list.addFromFront(5);
-        list.addFromFront(8);
-
-        while(list.hasNext()){
-            System.out.println(list.next());
-        }
-    }
 }
