@@ -1,6 +1,6 @@
 package chapterFour;
 
-public class FiveIntegarPalindromeTest {
+public class FiveIntegerPalindromeTest {
     public static void main(String[] args) {
         FiveIntegarPalindrome palindrome = new FiveIntegarPalindrome();
 
