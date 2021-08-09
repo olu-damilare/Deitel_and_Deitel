@@ -267,7 +267,6 @@ public class Kata {
                     tempList.add(k);
                 }
             }
-
         }
         int[] output = new int[tempList.size()];
 
@@ -278,4 +277,7 @@ public class Kata {
 
         return output;
     }
+
+
+
 }
