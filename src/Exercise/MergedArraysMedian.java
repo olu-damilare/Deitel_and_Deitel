@@ -45,7 +45,6 @@ public class MergedArraysMedian {
         System.out.println(Arrays.toString(newArray));
 
 
-//        if(newArray.length == 1) return newArray[0];
 
         if(newArray.length % 2 == 1){
             return newArray[(newArray.length / 2) ];
@@ -57,10 +56,4 @@ public class MergedArraysMedian {
 
     }
 
-    public static void main(String[] args) {
-        MergedArraysMedian median = new MergedArraysMedian();
-        int[] nums1 = {2};
-        int[] nums2 = {};
-        System.out.println(median.findMedianSortedArrays(nums1, nums2));
-    }
 }
