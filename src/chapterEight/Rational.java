@@ -3,7 +3,6 @@ package chapterEight;
 import chapterSix.GreatestCommonDivisor;
 
 import java.text.NumberFormat;
-import java.util.Objects;
 
 public class Rational {
 
