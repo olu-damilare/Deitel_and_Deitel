@@ -56,4 +56,8 @@ public class MergedArraysMedian {
 
     }
 
+    public static void main(String[] args) {
+        
+    }
+
 }
