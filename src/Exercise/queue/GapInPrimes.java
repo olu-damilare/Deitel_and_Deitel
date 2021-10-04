@@ -25,10 +25,13 @@ public class GapInPrimes {
                return new long[]{start, end};
             }
 
+
         }
         return null;
 
     }
+
+
 
     private static boolean isPrime(long number){
         for (int i = 2; i <= Math.sqrt(number); i++) {
@@ -37,7 +40,5 @@ public class GapInPrimes {
         return true;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(gap(6,100,110)));
-    }
+    
 }
