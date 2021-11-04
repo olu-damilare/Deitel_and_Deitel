@@ -1,5 +1,9 @@
 package Exercise;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 class Solution {
     public String addStrings(String num1, String num2) {
         int num1Counter = num1.length() - 1;
@@ -70,8 +74,25 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        String result = solution.addStrings("1", "1");
-        System.out.println(result);
+        Map<String, Account> stuff = new HashMap<>();
+        Account account = new Account(5000);
+        stuff.put("dami", account);
+        Account newAcc = stuff.get("dami");
+        System.out.println(newAcc.amount);
+
+        newAcc.amount += 2000;
+
+        System.out.println(newAcc.amount);
+        System.out.println(stuff.get("dami").amount);
+
+
+    }
+}
+
+class Account{
+    double amount;
+
+    Account(double amount){
+        this.amount = amount;
     }
 }
